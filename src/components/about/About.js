@@ -3,30 +3,31 @@ import styles from "./about.module.css";
 
 const About = () => {
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} id='about'>
 			<div className={styles.image}>
 				<img src={require("../../assets/about-1.jpg")} alt='Mountains' />
 			</div>
 			<div className={styles.about}>
 				<h2>About</h2>
 				<p>
-					There are many variations of passages of Lorem Ipsum available, but the majority have
-					suffered alteration in some form, by injected humour, or randomised words which dont look
-					even slightly believable. If you are going to use a passage of Lorem Ipsum,
+					Hey, My name is Tushar. I recently graduated from KIIT UNIVERSITY with B-Tech Degree where
+					Mechanical Engineering was my Major and Computer Science & Engineering was my Minor.
 				</p>
 				<div className={styles.about_container}>
 					<div>
-						<h3>Who we are</h3>
+						<h3>Who I am</h3>
 						<p>
-							There are many vtions of passages of Lorem Ipsum available, but the majority have
-							suffered.
+							Tech-savvy Frontend Web Developer familiar with wide range of programming utilities
+							and languages. Knowledgeable of frontend development requirements. I am a passionate
+							Web Developer and a Photographer.
 						</p>
 					</div>
 					<div>
-						<h3>Who we are</h3>
+						<h3>What I do</h3>
 						<p>
-							There are many vtions of passages of Lorem Ipsum available, but the majority have
-							suffered.
+							I'm a Frontend Developer with hands on experience of ReactJS & JavaScript. I'm aiming
+							for a Full Stack Web Developer, Learning NodeJS and I'm looking for opportuinities to
+							contribute my knowledge, skills, experience.
 						</p>
 					</div>
 				</div>

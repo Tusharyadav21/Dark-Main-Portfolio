@@ -51,6 +51,10 @@
 	line-height: 1.4074;
 	color: rgba(198, 201, 216, 0.75);
 }
+.link_left a {
+	color: rgba(198, 201, 216, 0.75);
+}
+
 .link_left div,
 .link_right div {
 	margin-bottom: 1.5rem;

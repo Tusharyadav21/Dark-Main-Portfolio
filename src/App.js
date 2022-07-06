@@ -1,11 +1,11 @@
 import "./App.css";
 import About from "./components/about/About";
-import Work from "./components/work/Work";
+// import Work from "./components/work/Work";
 import Header from "./components/header/Header";
 import Intro from "./components/intro/Intro";
-import Services from "./components/services/Services";
-import Testimonials from "./components/testimonials/Testimonials";
-import News from "./components/news/News";
+import Skills from "./components/skills/Skills";
+// import Testimonials from "./components/testimonials/Testimonials";
+import Projects from "./components/projects/Projects";
 import Footer from "./components/footer/Footer";
 import ScrollButton from "./components/scrollButton/ScrollButton";
 
@@ -16,10 +16,10 @@ function App() {
 				<Header />
 				<Intro />
 				<About />
-				<Services />
-				<Work />
-				<Testimonials />
-				<News />
+				<Skills />
+				{/* <Work /> */}
+				{/* <Testimonials /> */}
+				<Projects />
 				<Footer />
 				<ScrollButton />
 			</div>

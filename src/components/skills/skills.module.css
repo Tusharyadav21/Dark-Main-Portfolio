@@ -23,18 +23,13 @@
 	color: #fff;
 }
 .card:hover {
-	color: #fff !important;
 	transform: translateY(-10px);
 	transition: all 0.5s;
 }
-.card svg:hover,
-.card:hover {
-	stroke: #fff;
-}
 .card svg {
-	width: 54px;
-	height: 54px;
-	stroke: #f9004d;
+	width: 60px;
+	height: 60px;
+	/* stroke: #f9004d; */
 }
 .left button {
 	background: none;

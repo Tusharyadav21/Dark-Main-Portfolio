@@ -26,21 +26,18 @@
 	transform: translateY(-3px);
 }
 
-.button {
+.links a {
 	border-radius: 5px;
-	border: 2px solid rgb(169, 169, 169);
-	font-weight: 700;
+	font-size: 1.125rem;
+	font-weight: 600;
 	color: #c6c9d2;
-	background-color: black;
-	height: 50px;
-	width: 100px;
-	margin-left: 2rem;
+	/* background: none; */
+	padding: 1.2rem;
 }
-.button:hover {
+.links a:hover {
 	cursor: pointer;
 	color: #fff;
 	background-color: #f9004d;
-	border: 2px solid #f9004d;
 	transition: all 0.5s;
 	transform: translateY(-5px);
 }
@@ -52,7 +49,7 @@
 		margin-left: 0;
 	}
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 575px) {
 	.links {
 		display: none;
 	}

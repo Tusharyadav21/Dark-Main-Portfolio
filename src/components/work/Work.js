@@ -5,10 +5,10 @@ const Work = () => {
 	return (
 		<div className={styles.container}>
 			<div>
-				<h2>Our Works</h2>
+				<h2>My Projetcs</h2>
 				<p>
-					There are many variations of passages of Lorem Ipsum available,
-					<br /> but the majority have suffered alteration.
+					There are many variations of passages of Lorem Ipsum available, but the majority have
+					suffered alteration.
 				</p>
 			</div>
 			<div className={styles.facts_container}>
