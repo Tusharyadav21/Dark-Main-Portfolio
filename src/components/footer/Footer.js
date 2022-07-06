@@ -127,7 +127,7 @@ const Footer = () => {
 						</div>
 					</div>
 				</div>
-				<p>Copyright 2021 @ Tushar. All Rights Reserved.</p>
+				<p>Copyright 2022 @ Tushar. All Rights Reserved.</p>
 			</div>
 		</div>
 	);

@@ -2,10 +2,6 @@ import React from "react";
 import styles from "./header.module.css";
 
 const Header = () => {
-	const scroll = (ID) => {
-		const section = document.querySelector(`${ID}`);
-		section.scrollIntoView({ behavior: "smooth", block: "start" });
-	};
 	return (
 		<nav className={styles.header}>
 			<div className={styles.logo}>
