@@ -5,7 +5,7 @@ const About = () => {
 	return (
 		<div className={styles.container} id='about'>
 			<div className={styles.image}>
-				<img src={require("../../assets/about-1.jpg")} alt='Mountains' />
+				<img src={require("../../assets/about-01.jpg")} alt='Mountains' />
 			</div>
 			<div className={styles.about}>
 				<h2>About</h2>
