@@ -1,0 +1,42 @@
+.container {
+	padding: 3.125rem;
+	background-color: #191919;
+}
+.facts {
+	text-align: center;
+	font-size: 36px;
+	line-height: 26px;
+	font-weight: 500 !important;
+}
+.facts_container {
+	margin-top: 5rem;
+}
+.facts_cardContainer {
+	display: grid;
+	grid-template-columns: 33% 33% 33%;
+	text-align: center;
+}
+.facts_card {
+	padding: 3rem 1rem;
+}
+.facts_card div {
+	color: #f9004d;
+	font-size: 4.5rem;
+	line-height: 5rem;
+	font-weight: 600;
+}
+
+.facts_card div span {
+	font-size: 3rem;
+	vertical-align: text-top;
+}
+@media screen and (max-width: 990px) {
+	.container {
+		padding: 2.125rem;
+	}
+}
+@media screen and (max-width: 480px) {
+	.facts_cardContainer {
+		grid-template-columns: auto;
+	}
+}

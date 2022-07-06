@@ -1,0 +1,52 @@
+.container {
+	padding: 3.125rem;
+}
+.title {
+	font-size: 6.25rem;
+	background: linear-gradient(145deg, rgb(248, 31, 1), rgb(238, 7, 110));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	text-transform: uppercase;
+	font-weight: 900;
+	font-family: "Montserrat", sans-serif;
+	padding-top: 1rem;
+	padding-left: 0.5rem;
+	margin: 2rem 0;
+}
+.cardsContainer {
+	display: grid;
+	grid-template-columns: 33% 34% 33%;
+}
+.card p {
+	width: 92%;
+}
+@media screen and (max-width: 990px) {
+	.container {
+		padding: 2.125rem;
+	}
+}
+@media screen and (max-width: 768px) {
+	.title {
+		font-size: 5.25rem;
+	}
+	.cardsContainer {
+		grid-template-columns: auto auto;
+	}
+}
+
+@media screen and (max-width: 575px) {
+	.cardsContainer {
+		grid-template-columns: auto;
+	}
+}
+@media screen and (max-width: 480px) {
+	.title {
+		font-size: 4rem;
+	}
+	.cardsContainer {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+	}
+}
