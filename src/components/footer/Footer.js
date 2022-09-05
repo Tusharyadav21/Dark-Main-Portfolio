@@ -13,6 +13,7 @@ const Footer = () => {
 							<br />
 							to work!
 						</h2>
+						<br />
 						<button>Contact Me</button>
 					</div>
 				</div>

@@ -21,7 +21,7 @@ const Projects = () => {
 				<div className={styles.card}>
 					<img
 						onClick={() => {
-							window.open("https://tusharsport.netlify.app/");
+							window.open("https://react2do.netlify.app/");
 						}}
 						src={require("../../assets/Project-01.jpg")}
 						alt='Project 1'
@@ -30,10 +30,19 @@ const Projects = () => {
 				<div className={styles.card}>
 					<img
 						onClick={() => {
-							window.open("https://dark-main.netlify.app/");
+							window.open("https://omdb-api-task.netlify.app/");
 						}}
 						src={require("../../assets/Project-02.jpg")}
 						alt='Project 2'
+					/>
+				</div>
+				<div className={styles.card}>
+					<img
+						onClick={() => {
+							window.open("https://tusharsport.netlify.app/");
+						}}
+						src={require("../../assets/Project-03.jpg")}
+						alt='Project 3'
 					/>
 				</div>
 			</div>

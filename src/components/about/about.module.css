@@ -43,8 +43,10 @@
 		justify-content: center;
 	}
 	.image img {
-		max-width: 75%;
 		margin-top: 0;
+		width: 100%;
+		max-width: 350px;
+		max-height: 500px;
 	}
 	.about {
 		margin-top: 40px;
