@@ -4,7 +4,7 @@ import styles from "./skills.module.css";
 const Skills = () => {
 	const handleResume = (url) => {
 		window.open(
-			"https://drive.google.com/file/d/18Xh7PhNDu_lhIDZrLr8E2b3WUbLL6sJn/view?usp=sharing"
+			"https://docs.google.com/document/d/1QgxqhtHYkbHCAOM6hxKJ46eu2EsmQdzbe812w7tu3iA/edit?usp=sharing"
 		);
 	};
 	return (

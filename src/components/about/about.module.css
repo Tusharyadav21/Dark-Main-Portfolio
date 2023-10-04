@@ -3,9 +3,14 @@
 	background-color: #191919;
 	padding: 3.125rem;
 	display: grid;
-	grid-template-columns: 40% 60%;
+	grid-template-columns: 36% 64%;
+}
+.image {
+	display: flex;
+	justify-content: center;
 }
 .image img {
+	max-width: 500px;
 	width: 100%;
 	border-radius: 16px;
 	margin-top: -150px;
@@ -13,13 +18,13 @@
 .about {
 	padding-left: 4rem;
 }
-
 .about_container {
 	display: grid;
+	gap: 24px;
 	grid-template-columns: 50% 50%;
 }
 .about_container p {
-	width: 97%;
+	width: 	97%;
 }
 @media screen and (max-width: 1200px) {
 	.image img {
@@ -37,10 +42,6 @@
 	.container {
 		grid-template-columns: auto;
 		margin-top: 0;
-	}
-	.image {
-		display: flex;
-		justify-content: center;
 	}
 	.image img {
 		margin-top: 0;
