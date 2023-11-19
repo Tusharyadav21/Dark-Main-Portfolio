@@ -1,17 +1,13 @@
 import React from "react";
 import styles from "./header.module.css";
+import Image from "next/image";
+import Logo from "../../assets/logo2.png";
 
 const Header = () => {
 	return (
 		<nav className={styles.header}>
 			<div className={styles.logo}>
-				<img
-					src={require("../../assets/logo2.png")}
-					alt='LOGO'
-					onClick={() => {
-						window.open("http://trydo.rainbowit.net/dark-main-demo");
-					}}
-				/>
+				<Image src={Logo} alt='LOGO' height={"25px"} width={"25px"} />
 			</div>
 			<div className={styles.container_right}>
 				<div className={styles.links}>

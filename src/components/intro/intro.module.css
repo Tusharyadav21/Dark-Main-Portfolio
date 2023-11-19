@@ -1,6 +1,6 @@
 .container {
 	padding: 3.125rem;
-	min-height: 60vh;
+	min-height: 60dvh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -12,7 +12,7 @@
 	-webkit-text-fill-color: transparent;
 	font-weight: 800;
 	font-family: "Montserrat", sans-serif;
-	/* margin: -2rem 0 0 0; */
+	margin-bottom: 0.5rem;
 }
 .title {
 	height: 50px;
@@ -22,7 +22,7 @@
 
 .title_wrapper {
 	height: 100%;
-	animation: move 5s ease-in-out infinite alternate;
+	animation: move 8s ease-in-out infinite alternate;
 }
 .title_wrapper div {
 	height: 50px;
@@ -32,11 +32,17 @@
 	text-align: start;
 }
 @keyframes move {
-	50% {
+	25% {
 		transform: translateY(-50px);
 	}
-	100% {
+	50% {
 		transform: translateY(-100px);
+	}
+	75% {
+		transform: translateY(-150px);
+	}
+	100% {
+		transform: translateY(-200px);
 	}
 }
 @media screen and (max-width: 990px) {

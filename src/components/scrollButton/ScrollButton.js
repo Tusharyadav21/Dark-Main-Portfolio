@@ -1,6 +1,9 @@
+"use client";
 import React, { useState } from "react";
-import styles from "./scrollbutton.module.css";
+import Image from "next/image";
+import ScrollButtonImage from "../../assets/arrow_up_icon.png";
 
+import styles from "./scrollbutton.module.css";
 const ScrollButton = () => {
 	const [visible, setVisible] = useState(false);
 
@@ -20,7 +23,7 @@ const ScrollButton = () => {
 		});
 	};
 
-	window.addEventListener("scroll", toggleVisible);
+	// window.addEventListener("scroll", toggleVisible);
 	return (
 		<>
 			<button
@@ -28,7 +31,7 @@ const ScrollButton = () => {
 				onClick={scrollToTop}
 				style={{ display: visible ? "inline" : "none" }}
 			>
-				<img src={require("../../assets/arrow_up_icon.png")} alt='Up Icon' />
+				<Image height='30px' width='30px' src={ScrollButtonImage} alt='Up Icon' />
 			</button>
 		</>
 	);
