@@ -17,7 +17,9 @@ const Footer = () => {
 						</h2>
 						<br />
 						{/* <Link href='mailto:Tusharydv@hotmail.com'> */}
-						<button>Contact Me</button>
+						<a href='mailto:tusharydv@hotmail.com'>
+							<button>Contact Me</button>
+						</a>
 						{/* </Link> */}
 					</div>
 				</div>
@@ -49,13 +51,16 @@ const Footer = () => {
 							<span>Tusharydv@hotmail.com</span>
 							{/* </Link> */}
 						</div>
-						<Link href='https://docs.google.com/document/d/1QgxqhtHYkbHCAOM6hxKJ46eu2EsmQdzbe812w7tu3iA/edit?usp=sharing'>
+						<Link
+							href='https://docs.google.com/document/d/1QgxqhtHYkbHCAOM6hxKJ46eu2EsmQdzbe812w7tu3iA/edit?usp=sharing'
+							target='blank'
+						>
 							<div>
 								<span>Download CV</span>
 							</div>
 						</Link>
 						<div className={styles.social_link}>
-							<Link href='https://github.com/Tusharyadav21'>
+							<Link href='https://github.com/Tusharyadav21' target='blank'>
 								<span>
 									<svg
 										stroke='#9497a2'
@@ -74,7 +79,7 @@ const Footer = () => {
 									</svg>
 								</span>
 							</Link>
-							<Link href='https://www.linkedin.com/in/tusharyadav21/'>
+							<Link href='https://www.linkedin.com/in/tusharyadav21/' target='blank'>
 								<span>
 									<svg
 										stroke='currentColor'
@@ -89,7 +94,7 @@ const Footer = () => {
 									</svg>
 								</span>
 							</Link>
-							<Link href='https://www.instagram.com/pctures_que/'>
+							<Link href='https://www.instagram.com/pctures_que/' target='blank'>
 								<span>
 									<svg
 										stroke='currentColor'

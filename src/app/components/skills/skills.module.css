@@ -1,0 +1,43 @@
+.container {
+	padding: 5rem 3.125rem;
+}
+.right {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+.card {
+	padding: 1.875rem 1.75rem;
+	margin: 1rem;
+}
+.card svg {
+	width: 60px;
+	height: 60px;
+}
+.left button {
+	background: none;
+	border: none;
+	color: white;
+	font-weight: 700;
+	font-size: 1rem;
+}
+.left button:hover {
+	cursor: pointer;
+}
+@media screen and (max-width: 990px) {
+	.container {
+		padding: 2.125rem;
+	}
+	.right {
+		grid-template-columns: 1fr 1fr;
+	}
+}
+@media screen and (max-width: 575px) {
+	/* .card {
+		padding: 1rem 1rem;
+	} */
+}
+@media screen and (max-width: 480px) {
+	.right {
+		grid-template-columns: 1fr;
+	}
+}

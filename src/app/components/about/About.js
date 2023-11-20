@@ -1,14 +1,14 @@
 import React from "react";
 import Image from "next/image";
 
-import AboutImage from "../../assets/about-01.jpg";
+import AboutImage from "../../../assets/about-01.jpg";
 import styles from "./about.module.css";
 
 const About = () => {
 	return (
 		<div className={styles.container} id='about'>
 			<div className={styles.image}>
-				<Image height='790px' width={"470px"} src={AboutImage} alt='Mountains' />
+				<Image height={"630.5px"} width={"400px"} src={AboutImage} alt='Mountains' />
 			</div>
 			<div className={styles.about}>
 				<h2>About</h2>

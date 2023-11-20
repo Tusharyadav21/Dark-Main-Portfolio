@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import ScrollButtonImage from "../../assets/arrow_up_icon.png";
+import ScrollButtonImage from "../../../assets/arrow_up_icon.png";
 
 import styles from "./scrollbutton.module.css";
 const ScrollButton = () => {

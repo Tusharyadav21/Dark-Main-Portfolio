@@ -8,6 +8,7 @@ const Skills = () => {
 			<div className={styles.left}>
 				<h2>Skills</h2>
 				<p>These are my primary skills and I&apos;m making it stronger day by day.</p>
+				<ResumeButton />
 			</div>
 			<div className={styles.right}>
 				<div className={styles.card}>

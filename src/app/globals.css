@@ -102,6 +102,9 @@ a {
 * {
 	scroll-behavior: smooth;
 }
+a {
+	color: unset;
+}
 body {
 	margin: 0;
 	font-family: "Poppins", "Montserrat", sans-serif;
