@@ -1,6 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
+import { ContactForm } from "../contact-form/ContactForm";
 import styles from "./footer.module.css";
 
 const Footer = () => {
@@ -17,9 +18,7 @@ const Footer = () => {
 						</h2>
 						<br />
 						{/* <Link href='mailto:Tusharydv@hotmail.com'> */}
-						<a href='mailto:tusharydv@hotmail.com'>
-							<button>Contact Me</button>
-						</a>
+						<ContactForm />
 						{/* </Link> */}
 					</div>
 				</div>

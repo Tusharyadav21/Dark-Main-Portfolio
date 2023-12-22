@@ -23,7 +23,7 @@
 .links h5:hover {
 	color: #f9004d;
 	transition: color 0.5s ease-in-out;
-	transform: translateY(-3px);
+	transform: translateY(2px);
 }
 
 .links a {
@@ -39,7 +39,7 @@
 	color: #fff;
 	background-color: #f9004d;
 	transition: all 0.5s;
-	transform: translateY(-5px);
+	transform: translateY(2px);
 }
 @media screen and (max-width: 990px) {
 	.header {

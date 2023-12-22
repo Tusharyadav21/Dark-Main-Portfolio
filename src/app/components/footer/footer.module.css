@@ -32,7 +32,7 @@
 	background-color: #fff;
 	cursor: pointer;
 	transition: all 0.5s ease-in-out;
-	transform: translateY(-5px);
+	transform: translateY(2px);
 }
 .right {
 	margin-top: 6rem;
@@ -70,7 +70,7 @@
 	margin: 0 1.5rem 0 0;
 }
 .social_link span svg:hover {
-	transform: translateY(-3px);
+	transform: translateY(1px);
 	transition: all 0.3s ease-in-out;
 }
 .social_link span:hover,
