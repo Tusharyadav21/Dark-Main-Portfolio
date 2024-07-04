@@ -1,15 +1,11 @@
-"use client";
+
+import Link from "next/link";
 import React from "react";
 
 const ResumeButton = () => {
-	const handleResume = (url) => {
-		window.open(
-			"https://docs.google.com/document/d/1QgxqhtHYkbHCAOM6hxKJ46eu2EsmQdzbe812w7tu3iA/edit?usp=sharing"
-		);
-	};
 	return (
-		<button onClick={handleResume}>
-			Download CV{" "}
+		<Link href='https://drive.google.com/file/d/1saaSX7YZbVMBRLZ3nsQosR8RzKLnSwpT/view?usp=drive_link' rel="noopener noreferrer" target="_blank">
+			Download CV&nbsp;
 			<svg
 				width='13'
 				height='14'
@@ -22,7 +18,7 @@ const ResumeButton = () => {
 					fill='white'
 				/>
 			</svg>
-		</button>
+		</Link>
 	);
 };
 

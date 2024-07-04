@@ -11,11 +11,12 @@ const Header = () => {
 			</div>
 			<div className={styles.container_right}>
 				<div className={styles.links}>
-					<a href='#home'>Home</a>
-					<a href='#about'>About</a>
-					<a href='#skills'>Skills</a>
-					<a href='#projects'>Projects</a>
-					<a href='#contact'>Contact</a>
+					<a href='/#home'>Home</a>
+					<a href='/#about'>About</a>
+					<a href='/#skills'>Skills</a>
+					<a href='/#projects'>Projects</a>
+					<a href='/#contact'>Contact</a>
+					{/* <a href='/resume'>Resume</a> */}
 				</div>
 			</div>
 		</nav>

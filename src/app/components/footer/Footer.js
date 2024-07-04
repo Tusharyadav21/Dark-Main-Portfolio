@@ -50,8 +50,8 @@ const Footer = () => {
 							<span>Tusharydv@hotmail.com</span>
 							{/* </Link> */}
 						</div>
-						<Link
-							href='https://docs.google.com/document/d/1QgxqhtHYkbHCAOM6hxKJ46eu2EsmQdzbe812w7tu3iA/edit?usp=sharing'
+						<Link replace
+							href='https://drive.google.com/file/d/1saaSX7YZbVMBRLZ3nsQosR8RzKLnSwpT/view?usp=drive_link'
 							target='blank'
 						>
 							<div>
@@ -64,7 +64,7 @@ const Footer = () => {
 									<svg
 										stroke='#9497a2'
 										fill='#9497a2'
-										stroke-width='10'
+										strokeWidth='10'
 										width='24'
 										height='24'
 										viewBox='0 0 256 249'
@@ -83,7 +83,7 @@ const Footer = () => {
 									<svg
 										stroke='currentColor'
 										fill='currentColor'
-										stroke-width='0'
+										strokeWidth='0'
 										viewBox='0 0 448 512'
 										height='24'
 										width='24'
@@ -98,7 +98,7 @@ const Footer = () => {
 									<svg
 										stroke='currentColor'
 										fill='currentColor'
-										stroke-width='0'
+										strokeWidth='0'
 										viewBox='0 0 448 512'
 										height='24'
 										width='24'

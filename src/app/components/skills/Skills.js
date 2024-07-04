@@ -24,22 +24,22 @@ const Skills = () => {
 						</g>
 					</svg>
 					<h4>ReactJS</h4>
-					<p>I throw myself down among the tall grass by the stream as I lie close to the earth.</p>
+					<p>A JavaScript library for building user interfaces, primarily for single-page applications.</p>
 				</div>
 				<div className={styles.card}>
 					<svg width='24px' height='24px' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-						<g fill='none' fill-rule='evenodd'>
+						<g fill='none' fillRule='evenodd'>
 							<rect width='24' height='24' fill='#F1DC50' />
 							<path
 								stroke='#333'
-								stroke-width='2'
+								strokeWidth='2'
 								d='M12,11 C12,15.749205 12,18.4158717 12,19 C12,19.8761925 11.4771235,21 10,21 C7.61461794,21 7.5,19 7.5,19 M20.7899648,13.51604 C20.1898831,12.5053467 19.3944074,12 18.4035378,12 C16.8563489,12 16,13 16,14 C16,15 16.5,16 18.5084196,16.5 C19.7864643,16.8181718 21,17.5 21,19 C21,20.5 19.6845401,21 18.5,21 C16.9861609,21 15.9861609,20.3333333 15.5,19'
 							/>
 						</g>
 					</svg>
 
 					<h4>JavaScript</h4>
-					<p>I throw myself down among the tall grass by the stream as I lie close to the earth.</p>
+					<p>A versatile programming language commonly used for web development to create interactive and dynamic web pages.</p>
 				</div>
 				<div className={styles.card}>
 					<svg
@@ -55,7 +55,7 @@ const Skills = () => {
 						</g>
 					</svg>
 					<h4>NodeJS</h4>
-					<p>I throw myself down among the tall grass by the stream as I lie close to the earth.</p>
+					<p>A runtime environment that allows the execution of JavaScript code server-side, enabling backend development with JavaScript.</p>
 				</div>
 				<div className={styles.card}>
 					<svg
@@ -67,12 +67,12 @@ const Skills = () => {
 					>
 						<defs>
 							<linearGradient x1='12.959%' y1='12.039%' x2='79.639%' y2='78.201%' id='a'>
-								<stop stop-color='#387EB8' offset='0%' />
-								<stop stop-color='#366994' offset='100%' />
+								<stop stopColor='#387EB8' offset='0%' />
+								<stop stopColor='#366994' offset='100%' />
 							</linearGradient>
 							<linearGradient x1='19.128%' y1='20.579%' x2='90.742%' y2='88.429%' id='b'>
-								<stop stop-color='#FFE052' offset='0%' />
-								<stop stop-color='#FFC331' offset='100%' />
+								<stop stopColor='#FFE052' offset='0%' />
+								<stop stopColor='#FFC331' offset='100%' />
 							</linearGradient>
 						</defs>
 						<path
@@ -85,7 +85,7 @@ const Skills = () => {
 						/>
 					</svg>
 					<h4>Python</h4>
-					<p>I throw myself down among the tall grass by the stream as I lie close to the earth.</p>
+					<p>A high-level, interpreted programming language known for its readability and versatility, widely used in web development, data science, automation, and more.</p>
 				</div>
 			</div>
 		</div>
