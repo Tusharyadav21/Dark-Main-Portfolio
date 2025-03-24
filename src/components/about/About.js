@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-import AboutImage from "../../../assets/about-01.jpg";
+import AboutImage from "../../assets/about-01.jpg";
 import styles from "./about.module.css";
 
 const About = () => {
