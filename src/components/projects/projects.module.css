@@ -1,6 +1,6 @@
 .container {
-	padding: 3.125rem;
-	background-color: #191919;
+	padding: 3.125rem 0;
+	margin: auto;
 }
 .top {
 	display: flex;
@@ -9,31 +9,21 @@
 .top p {
 	width: 70%;
 }
-.top button {
-	background: none;
-	border: none;
-	color: white;
-	font-weight: 700;
-	font-size: 1rem;
-}
-.top button:hover {
-	cursor: pointer;
-	color: #f9004d;
-}
 .card_container {
-	display: grid;
+	display: flex;
 	gap: 24px;
-	grid-template-columns: 1fr 1fr 1fr;
-	justify-content: space-evenly;
-	margin-bottom: 3rem;
+	justify-content: space-around;
+	margin-bottom: 8rem;
 }
 .card {
+	display: flex;
 	margin: 1.5rem 0;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
 .card h6 {
-	display: flex;
 	margin: 16px auto 0;
-	justify-content: center;
 }
 .card iframe {
 	width: 100%;
@@ -49,7 +39,7 @@
 
 @media screen and (max-width: 1040px) {
 	.container {
-		padding: 2.125rem;
+		padding: 2.125rem 0;
 	}
 	.card_container {
 		grid-template-columns: 1fr;
@@ -60,7 +50,7 @@
 }
 @media screen and (max-width: 990px) {
 	.container {
-		padding: 2.125rem;
+		padding: 2.125rem 0;
 	}
 }
 @media screen and (max-width: 768px) {

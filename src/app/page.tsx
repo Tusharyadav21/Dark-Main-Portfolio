@@ -1,21 +1,17 @@
-import Intro from "../components/intro/Intro";
-import About from "../components/about/About";
-import Skills from "../components/skills/Skills";
-import Projects from "../components/projects/Projects";
-import Footer from "../components/footer/Footer";
-import ScrollButton from "../components/scrollButton/ScrollButton";
+import Intro from "../components/intro";
+import About from "../components/about";
+import Skills from "../components/skills";
+import Projects from "../components/projects";
+import Work from "../components/work";
 
 export default function Home() {
 	return (
 		<>
 			<Intro />
-			<About />
 			<Skills />
-			{/* <Work /> */}
+			<Work />
 			{/* <Testimonials /> */}
 			<Projects />
-			<Footer />
-			<ScrollButton />
 		</>
 	);
 }

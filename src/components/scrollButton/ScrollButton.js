@@ -1,7 +1,6 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import ScrollButtonImage from "../../assets/arrow_up_icon.png";
 
 import styles from "./scrollbutton.module.css";
 const ScrollButton = () => {
@@ -31,7 +30,7 @@ const ScrollButton = () => {
 				onClick={scrollToTop}
 				style={{ display: visible ? "inline" : "none" }}
 			>
-				<Image height='30px' width='30px' src={ScrollButtonImage} alt='Up Icon' />
+				<Image height={30} width={30} src="/public/assets/arrow_up_icon.png" alt='Up Icon' />
 			</button>
 		</>
 	);

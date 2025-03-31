@@ -1,9 +1,11 @@
 .container {
-	padding: 3.125rem;
-	min-height: 60dvh;
+	padding: 3.125rem 0;
+	min-height: 95vh;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	text-align: center;
+	margin: auto;
 }
 .heading {
 	font-size: 4.25rem;
@@ -22,28 +24,13 @@
 
 .title_wrapper {
 	height: 100%;
-	animation: move 8s ease-in-out infinite alternate;
+	animation: move 4s ease-in-out infinite alternate;
 }
 .title_wrapper div {
 	height: 50px;
 	font-size: 2rem;
 	font-weight: 600;
-	color: #fff;
 	text-align: start;
-}
-@keyframes move {
-	25% {
-		transform: translateY(-50px);
-	}
-	50% {
-		transform: translateY(-100px);
-	}
-	75% {
-		transform: translateY(-150px);
-	}
-	100% {
-		transform: translateY(-200px);
-	}
 }
 @media screen and (max-width: 990px) {
 	.container {

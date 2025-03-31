@@ -1,9 +1,12 @@
-.container {
-	padding: 5rem 3.125rem;
+.containerd {
+	padding: 8rem 0;
+	margin: auto;
+	min-height: 65vh;
 }
 .right {
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+	gap: 8px
 }
 .card {
 	padding: 1.875rem 1.75rem;
@@ -16,7 +19,6 @@
 .left button {
 	background: none;
 	border: none;
-	color: white;
 	font-weight: 700;
 	font-size: 1rem;
 }
@@ -27,9 +29,9 @@
 	.container {
 		padding: 2.125rem;
 	}
-	.right {
+	/* .right {
 		grid-template-columns: 1fr 1fr;
-	}
+	} */
 }
 @media screen and (max-width: 575px) {
 	/* .card {
@@ -38,6 +40,6 @@
 }
 @media screen and (max-width: 480px) {
 	.right {
-		grid-template-columns: 1fr;
+		grid-template-columns: 1fr 1fr 1fr;
 	}
 }

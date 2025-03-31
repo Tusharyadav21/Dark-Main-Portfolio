@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Projects = () => {
 	return (
-		<div className={styles.container} id='projects'>
+		<div className={` ${styles.container}`} id='projects'>
 			<div>
 				<h2>Latest Projects</h2>
 				<div className={styles.top}>
@@ -16,21 +16,21 @@ const Projects = () => {
 			</div>
 			<div className={styles.card_container}>
 				<div className={styles.card}>
-					<Link href='https://react2do.netlify.app/' target='blank'>
-						<iframe src={"https://react2do.netlify.app/"} />
+					<Link href='https://react2do.netlify.app/' target='blank' className="flex flex-col items-center justify-center">
+						<h4>ToDo App</h4>
 						<h6>Visit Website</h6>
+					</Link>
+					<Link href='https://github.com/Tusharyadav21/ToDo-App' target='blank'>
+						<h6>Visit GitHub</h6>
 					</Link>
 				</div>
 				<div className={styles.card}>
-					<Link href='https://omdb-api-task.netlify.app/' target='blank'>
-						<iframe src={"https://omdb-api-task.netlify.app/"} />
+					<Link href='https://omdb-api-task.netlify.app/' target='blank' className="flex flex-col items-center justify-center">
+						<h4>OMDB App</h4>
 						<h6>Visit Website</h6>
 					</Link>
-				</div>
-				<div className={styles.card}>
-					<Link href='https://tusharsport.netlify.app/' target='blank'>
-						<iframe src={"https://tusharsport.netlify.app/"} />
-						<h6>Visit Website</h6>
+					<Link href='https://github.com/Tusharyadav21/OMDB-API-App' target='blank'>
+						<h6>Visit GitHub</h6>
 					</Link>
 				</div>
 			</div>

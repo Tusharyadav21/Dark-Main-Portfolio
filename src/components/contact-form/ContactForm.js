@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import emailjs from "@emailjs/browser";
 
 import styles from "./contact-form.module.css";
+import Button from "../motions/Button";
 
 export const ContactForm = () => {
 	const [submitingData, setSubmitingData] = useState(false);
@@ -44,13 +45,13 @@ export const ContactForm = () => {
 			<textarea name='message' placeholder='Message...' />
 			{Message && <label>{Message}</label>}
 			{!submitingData ? (
-				<button type='submit' className={styles.contact_form_button}>
-					Submit
-				</button>
+				<Button type='submit' className="w-full">
+						Submit
+				</Button>
 			) : (
-				<button type='submit' className={styles.contact_form_button_submitting}>
+				<Button type='submit' isDisabled={true} className={styles.contact_form_button_submitting}>
 					Submitting...
-				</button>
+				</Button>
 			)}
 		</form>
 	);

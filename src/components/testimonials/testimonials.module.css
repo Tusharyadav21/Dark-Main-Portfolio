@@ -5,14 +5,6 @@
 .container h5 {
 	padding: 0 9.9rem;
 }
-.container h6 span {
-	text-transform: uppercase;
-	color: #fff;
-}
-
-.container h6 {
-	color: rgba(198, 201, 216, 0.75);
-}
 
 @media screen and (max-width: 990px) {
 	.container {

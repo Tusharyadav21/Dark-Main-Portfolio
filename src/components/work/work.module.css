@@ -1,6 +1,7 @@
 .container {
-	padding: 3.125rem;
-	background-color: #191919;
+	padding: 3.125rem 3.125rem;
+	border-radius: 48px;
+	background-color: var(--secondary);
 }
 .facts {
 	text-align: center;
@@ -20,7 +21,7 @@
 	padding: 3rem 1rem;
 }
 .facts_card div {
-	color: #f9004d;
+	color: var(--primary);
 	font-size: 4.5rem;
 	line-height: 5rem;
 	font-weight: 600;
@@ -32,7 +33,7 @@
 }
 @media screen and (max-width: 990px) {
 	.container {
-		padding: 2.125rem;
+		padding: 2.125rem 0;
 	}
 }
 @media screen and (max-width: 480px) {
