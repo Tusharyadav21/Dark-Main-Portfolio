@@ -1,51 +1,8 @@
-.container {
-	margin-top: 5rem;
-	padding: 3.125rem 3.125rem;
-	border-radius: 48px;
-	background-color: var(--secondary);
-}
-.container h5 {
-	font-weight: 600;
-	color: var(--background);
-}
-.image {
-	display: flex;
-	justify-content: start;
-}
 .about_container {
 	display: grid;
 	gap: 24px;
 }
-.about_container h5 {
-	font-weight: 500;
-}
-.about_container p {
-	font-weight: 400;
-	color: var(--background);
-}
-@media screen and (max-width: 1200px) {
-	.image img {
-		margin-top: -100px;
-	}
-}
-
-@media screen and (max-width: 990px) {
-	.container {
-		padding: 2.125rem;
-	}
-}
-
 @media screen and (max-width: 768px) {
-	.container {
-		grid-template-columns: auto;
-		margin-top: 0;
-	}
-	.image img {
-		margin-top: 0;
-		width: 100%;
-		max-width: 350px;
-		max-height: 500px;
-	}
 	.about {
 		margin-top: 40px;
 		padding: 0;

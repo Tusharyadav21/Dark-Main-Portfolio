@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Projects = () => {
 	return (
-		<div className={` ${styles.container}`} id='projects'>
+		<div className={`containerd`} id='projects'>
 			<div>
 				<h2>Latest Projects</h2>
 				<div className={styles.top}>

@@ -59,7 +59,7 @@ const Footer = () => {
 								<span>Download CV</span>
 							</div>
 						</Link>
-						<div className={styles.social_link}>
+						<div className={`${styles.social_link} flex gap-8`}>
 							<Link href='https://github.com/Tusharyadav21' target='blank'>
 								<GithubIcon height={24} width={24} />
 							</Link>

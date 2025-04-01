@@ -29,7 +29,7 @@ const experienceData = {
 
 const Work = () => {
 	return (
-		<div className={`${styles.container} mb-32`} id={`${experienceData.sectionId}`}>
+		<div className={`bg-[var(--secondary)] containerd mb-32`} id={`${experienceData.sectionId}`}>
 			<div className="text-[var(--background)]">
 				<h2>{experienceData.title}</h2>
 				<p>

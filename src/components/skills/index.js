@@ -88,7 +88,7 @@ const SkillCard = ({ skill }) => {
 
 const Skills = () => {
 	return (
-		<div className={`${styles.containerd} min-h-screen`} id="skills">
+		<div className={`containerd mb-64`} id="skills">
 			<div className={styles.left}>
 				<h2>Skills</h2>
 				<p>These are my primary skills and I&apos;m making it stronger day by day</p>

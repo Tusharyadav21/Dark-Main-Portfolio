@@ -38,15 +38,15 @@ export const ContactForm = () => {
 	return (
 		<form ref={form} onSubmit={sendEmail} className={styles.contact_form}>
 			{/* <label>Name</label> */}
-			<input type='text' name='user_name' placeholder='Name' />
+			<input type='text' name='user_name' placeholder='Name' className="text-[var(--text)]" />
 			{/* <label>Email</label> */}
-			<input type='email' name='user_email' placeholder='Email' />
+			<input type='email' name='user_email' placeholder='Email' className="text-[var(--text)]" />
 			{/* <label>Message</label> */}
-			<textarea name='message' placeholder='Message...' />
+			<textarea name='message' placeholder='Message...' className="text-[var(--text)]" />
 			{Message && <label>{Message}</label>}
 			{!submitingData ? (
 				<Button type='submit' className="w-full">
-						Submit
+					Submit
 				</Button>
 			) : (
 				<Button type='submit' isDisabled={true} className={styles.contact_form_button_submitting}>
