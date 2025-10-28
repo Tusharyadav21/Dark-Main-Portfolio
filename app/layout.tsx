@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import {
-	SidebarProvider,
-	SidebarTrigger,
-} from "@/components/ui/sidebar";
+import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { TopBar } from "@/components/top-bar";
 
@@ -36,7 +33,9 @@ export default function RootLayout({
 				<SidebarProvider>
 					<AppSidebar />
 					<TopBar />
-					{children}
+					<main className='flex-1 min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
+						{children}
+					</main>
 				</SidebarProvider>
 			</body>
 		</html>

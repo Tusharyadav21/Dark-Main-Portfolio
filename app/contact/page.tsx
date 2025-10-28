@@ -101,15 +101,15 @@ export default function ContactPage() {
 	};
 
 	return (
-		<div className='flex-1 min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
+		<>
 			<div className='max-w-fit mx-auto'>
 				{/* Header */}
-				<div className='text-center mb-16'>
+				<div className='mb-16'>
 					<h1 className='text-5xl md:text-6xl font-bold mb-4'>
 						Let&apos;s Connect
 					</h1>
-					<div className='h-1 w-24 bg-linear-to-r from-blue-600 to-purple-600 mx-auto mb-6' />
-					<p className='text-lg  max-w-2xl mx-auto'>
+					<div className='h-1 w-24 bg-linear-to-r from-blue-600 to-purple-600 mb-6' />
+					<p className='text-lg  max-w-2xl '>
 						Have a project in mind or want to discuss
 						something? I&apos;d love to hear from you. Reach
 						out through any of the channels below.
@@ -377,13 +377,13 @@ export default function ContactPage() {
 				</div>
 
 				{/* CTA Section */}
-				<div className='mt-16 text-center'>
+				<div className='mt-16'>
 					<Card className='border-0 shadow-lg'>
 						<CardContent className='pt-8 pb-8'>
 							<h3 className='text-2xl font-bold mb-3'>
 								Let&apos;s build something amazing together!
 							</h3>
-							<p className=' mb-6'>
+							<p className='mb-6'>
 								Whether it&apos;s a full-stack project, AI
 								integration, or just a quick chat, I&apos;m
 								always open to collaborations.
@@ -395,6 +395,6 @@ export default function ContactPage() {
 					</Card>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }

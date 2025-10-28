@@ -1,3 +1,5 @@
+"use client";
+
 import {
 	Sidebar,
 	SidebarContent,
@@ -22,6 +24,7 @@ import {
 	PhoneCall,
 } from "lucide-react";
 import ThemeToggle from "./theme-toggle";
+import Link from "next/link";
 
 export function AiAvatar() {
 	return (
@@ -91,10 +94,10 @@ export function AppSidebar() {
 										asChild
 										className='pl-4 font-medium'
 									>
-										<a href={item.url}>
+										<Link href={item.url}>
 											<item.icon />
 											<span>{item.title}</span>
-										</a>
+										</Link>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
 							))}
@@ -102,7 +105,7 @@ export function AppSidebar() {
 					</SidebarGroupContent>
 				</SidebarGroup>
 			</SidebarContent>
-			<SidebarFooter>
+			<SidebarFooter className='max-w-full mx-auto'>
 				<ThemeToggle />
 			</SidebarFooter>
 		</Sidebar>

@@ -35,7 +35,7 @@ export default function ChatPage() {
 	const isLoading = status !== "ready";
 
 	return (
-		<div className='flex-1 min-h-screen flex flex-col'>
+		<>
 			{/* Messages Area */}
 			<div className='flex-1 overflow-y-auto w-full px-4 sm:px-6 lg:px-8 py-8'>
 				<div className='max-w-4xl mx-auto w-full'>
@@ -177,6 +177,6 @@ export default function ChatPage() {
 					</p>
 				</div>
 			</div>
-		</div>
+		</>
 	);
 }
