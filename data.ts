@@ -4,9 +4,6 @@ import {
 	MapPin,
 	Github,
 	Linkedin,
-	Twitter,
-	ExternalLink,
-	Loader2,
 } from "lucide-react";
 
 export interface TimelineItem {

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { Github, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { projects } from "@/data";
+import Image from "next/image";
 
 export default function Projects() {
 	return (
@@ -36,8 +37,10 @@ export default function Projects() {
 							}}
 							className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300'
 						>
-							<Github className='w-4 h-4' />
-							View All Projects
+							<>
+								<Github className='w-4 h-4' />
+								View All Projects
+							</>
 						</Button>
 					</Link>
 				</div>
@@ -52,10 +55,12 @@ export default function Projects() {
 					>
 						{/* Image Container */}
 						<div className='relative h-40 overflow-hidden bg-linear-to-br from-blue-500 to-purple-600'>
-							<img
+							<Image
 								src={project.image}
-								alt={project.title}
-								className='w-full h-full object-cover group-hover:scale-110 transition-transform duration-300'
+								alt={`Screenshot of ${project.title} application interface`}
+								fill
+								className='object-cover group-hover:scale-110 transition-transform duration-300'
+								sizes='(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'
 							/>
 							<div className='absolute inset-0 bg-black bg-opacity-20 group-hover:bg-opacity-10 transition-all duration-300' />
 						</div>
@@ -101,8 +106,10 @@ export default function Projects() {
 											label: `Live Demo - ${project.title}`,
 										}}
 									>
-										<ExternalLink className='w-3 h-3' />
-										Demo
+										<>
+											<ExternalLink className='w-3 h-3' />
+											Demo
+										</>
 									</Button>
 								</Link>
 								<Link
@@ -121,8 +128,10 @@ export default function Projects() {
 										}}
 										className='w-full border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg text-xs py-1.5 flex items-center justify-center gap-1.5 transition-all duration-300'
 									>
-										<Github className='w-3 h-3' />
-										Code
+										<>
+											<Github className='w-3 h-3' />
+											Code
+										</>
 									</Button>
 								</Link>
 							</div>

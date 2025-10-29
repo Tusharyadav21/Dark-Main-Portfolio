@@ -228,8 +228,10 @@ export default function ContactPage() {
 											label: "mailto link",
 										}}
 									>
-										<Mail className='w-4 h-4 mr-2' />
-										Send Email
+										<>
+											<Mail className='w-4 h-4 mr-2' />
+											Send Email
+										</>
 									</Button>
 								</Link>
 								<Link

@@ -27,6 +27,7 @@ import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
 import { GtmEventData } from "@/lib/utils";
 import { pushGtmEvent } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 type NavItem = {
 	title: string;
@@ -103,23 +104,14 @@ const items: NavItem[] = [
 	},
 ];
 
-const handleNavigationClick = (
-	event: React.MouseEvent<HTMLButtonElement>,
-	item: NavItem
-) => {
-	// Stop default navigation temporarily
-	event.preventDefault();
-
-	// Push GTM event data
-	pushGtmEvent(item.gtmEvent);
-
-	// Perform navigation (simulating Link behavior)
-	if (typeof window !== "undefined") {
-		window.location.href = item.url;
-	}
-};
-
 export function AppSidebar() {
+	const router = useRouter();
+
+	const handleNavigationClick = (item: NavItem) => {
+		pushGtmEvent(item.gtmEvent);
+		router.push(item.url);
+	};
+
 	return (
 		<Sidebar>
 			<SidebarHeader>
@@ -147,15 +139,14 @@ export function AppSidebar() {
 								<SidebarMenuItem key={item.title}>
 									<SidebarMenuButton
 										asChild
-										className='pl-4 font-medium'
-										onClick={(e) =>
-											handleNavigationClick(e, item)
+										onClick={() =>
+											handleNavigationClick(item)
 										}
 									>
-										<Link href={item.url}>
+										<span className='pl-4 font-medium'>
 											<item.icon />
-											<span>{item.title}</span>
-										</Link>
+											&nbsp;{item.title}
+										</span>
 									</SidebarMenuButton>
 								</SidebarMenuItem>
 							))}

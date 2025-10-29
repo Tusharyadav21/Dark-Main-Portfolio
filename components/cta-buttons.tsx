@@ -19,8 +19,10 @@ export default function CTAButtons() {
 					}}
 					className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-base rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2'
 				>
-					View My Work
-					<ArrowRight className='w-5 h-5' />
+					<>
+						View My Work
+						<ArrowRight className='w-5 h-5' />
+					</>
 				</Button>
 			</Link>
 			<Link href='/contact'>
@@ -34,8 +36,10 @@ export default function CTAButtons() {
 					}}
 					className='border-2 border-gray-300  hover:bg-gray-50 px-8 py-6 text-base rounded-lg font-medium transition-all duration-300 flex items-center gap-2'
 				>
-					Get In Touch
-					<ArrowRight className='w-5 h-5' />
+					<>
+						Get In Touch
+						<ArrowRight className='w-5 h-5' />
+					</>
 				</Button>
 			</Link>
 			<Link
@@ -53,8 +57,10 @@ export default function CTAButtons() {
 					}}
 					className='border-2 border-gray-300  hover:bg-gray-50 px-8 py-6 text-base rounded-lg font-medium transition-all duration-300 flex items-center gap-2'
 				>
-					<Download className='w-5 h-5' />
-					Download Resume
+					<>
+						<Download className='w-5 h-5' />
+						Download Resume
+					</>
 				</Button>
 			</Link>
 		</div>
