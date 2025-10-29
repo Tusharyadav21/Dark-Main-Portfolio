@@ -27,7 +27,15 @@ export default function Projects() {
 						target='_blank'
 						rel='noopener noreferrer'
 					>
-						<Button className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300'>
+						<Button
+							gtmEvent={{
+								event: "cta_interaction",
+								category: "Portfolio",
+								action: "View All Projects CTA",
+								label: "Top-of-Page Collection CTA",
+							}}
+							className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-2 text-sm rounded-lg shadow-lg hover:shadow-xl transition-all duration-300'
+						>
 							<Github className='w-4 h-4' />
 							View All Projects
 						</Button>
@@ -84,7 +92,15 @@ export default function Projects() {
 									rel='noopener noreferrer'
 									className='flex-1'
 								>
-									<Button className='w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs py-1.5 flex items-center justify-center gap-1.5 transition-all duration-300'>
+									<Button
+										className='w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-xs py-1.5 flex items-center justify-center gap-1.5 transition-all duration-300'
+										gtmEvent={{
+											event: "project_interaction",
+											category: "Portfolio",
+											action: "View Demo",
+											label: `Live Demo - ${project.title}`,
+										}}
+									>
 										<ExternalLink className='w-3 h-3' />
 										Demo
 									</Button>
@@ -97,6 +113,12 @@ export default function Projects() {
 								>
 									<Button
 										variant='outline'
+										gtmEvent={{
+											event: "project_interaction",
+											category: "Portfolio",
+											action: "View Code",
+											label: `GitHub Code - ${project.title}`,
+										}}
 										className='w-full border-gray-300 text-gray-700 hover:bg-gray-50 rounded-lg text-xs py-1.5 flex items-center justify-center gap-1.5 transition-all duration-300'
 									>
 										<Github className='w-3 h-3' />

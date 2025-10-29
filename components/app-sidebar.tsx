@@ -25,6 +25,15 @@ import {
 } from "lucide-react";
 import ThemeToggle from "./theme-toggle";
 import Link from "next/link";
+import { GtmEventData } from "@/lib/utils";
+import { pushGtmEvent } from "@/lib/utils";
+
+type NavItem = {
+	title: string;
+	url: string;
+	icon: React.ElementType | typeof AiAvatar;
+	gtmEvent: GtmEventData;
+};
 
 export function AiAvatar() {
 	return (
@@ -36,44 +45,90 @@ export function AiAvatar() {
 	);
 }
 
-const items = [
+const items: NavItem[] = [
 	{
 		title: "Home",
 		url: "/",
 		icon: Home,
+		gtmEvent: {
+			event: "navigation_click",
+			category: "Sidebar",
+			action: "Navigate",
+			label: "Home",
+		},
 	},
 	{
 		title: "Work & Education",
 		url: "/career",
 		icon: BriefcaseBusiness,
+		gtmEvent: {
+			event: "navigation_click",
+			category: "Sidebar",
+			action: "Navigate",
+			label: "Work & Education",
+		},
 	},
 	{
 		title: "Projects",
 		url: "/projects",
 		icon: Frame,
+		gtmEvent: {
+			event: "navigation_click",
+			category: "Sidebar",
+			action: "Navigate",
+			label: "Projects",
+		},
 	},
 	{
 		title: "Let's Connect ",
 		url: "/contact",
 		icon: PhoneCall,
+		gtmEvent: {
+			event: "navigation_click",
+			category: "Sidebar",
+			action: "Navigate",
+			label: "Let's Connect",
+		},
 	},
 	{
 		title: "Chat with my Assistant ",
 		url: "/chat",
 		icon: AiAvatar,
+		gtmEvent: {
+			event: "navigation_click",
+			category: "Sidebar",
+			action: "Navigate",
+			label: "Chat with Assistant",
+		},
 	},
 ];
+
+const handleNavigationClick = (
+	event: React.MouseEvent<HTMLButtonElement>,
+	item: NavItem
+) => {
+	// Stop default navigation temporarily
+	event.preventDefault();
+
+	// Push GTM event data
+	pushGtmEvent(item.gtmEvent);
+
+	// Perform navigation (simulating Link behavior)
+	if (typeof window !== "undefined") {
+		window.location.href = item.url;
+	}
+};
 
 export function AppSidebar() {
 	return (
 		<Sidebar>
 			<SidebarHeader>
-				<Avatar>
+				<Avatar className='min-h-40 min-w-40'>
 					<AvatarImage
-						className='rounded-full w-46 h-46 m-auto mt-12'
-						src='https://github.com/shadcn.png'
+						className='rounded-full w-40 h-40 m-auto mt-12'
+						src='/portfolio_picture.png'
 					/>
-					<AvatarFallback className='rounded-full w-46 h-46 m-auto mt-12'>
+					<AvatarFallback className='rounded-full w-40 h-40 m-auto mt-12'>
 						CN
 					</AvatarFallback>
 				</Avatar>
@@ -93,6 +148,9 @@ export function AppSidebar() {
 									<SidebarMenuButton
 										asChild
 										className='pl-4 font-medium'
+										onClick={(e) =>
+											handleNavigationClick(e, item)
+										}
 									>
 										<Link href={item.url}>
 											<item.icon />
@@ -106,7 +164,14 @@ export function AppSidebar() {
 				</SidebarGroup>
 			</SidebarContent>
 			<SidebarFooter className='max-w-full mx-auto'>
-				<ThemeToggle />
+				<ThemeToggle
+					gtmEvent={{
+						event: "utility_click",
+						category: "Sidebar",
+						action: "Toggle Theme",
+						label: "Theme Toggle",
+					}}
+				/>
 			</SidebarFooter>
 		</Sidebar>
 	);

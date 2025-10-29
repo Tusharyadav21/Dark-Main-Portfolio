@@ -4,6 +4,7 @@ import "./globals.css";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
 import { TopBar } from "@/components/top-bar";
+import { GoogleTagManager } from "@next/third-parties/google";
 
 const geistSans = Geist({
 	variable: "--font-geist-sans",
@@ -38,6 +39,7 @@ export default function RootLayout({
 					</main>
 				</SidebarProvider>
 			</body>
+			<GoogleTagManager gtmId='G-LS81W9F095' />
 		</html>
 	);
 }

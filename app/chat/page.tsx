@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Send, Loader2 } from "lucide-react";
 import { Messages } from "@/components/message";
+import { pushGtmEvent } from "@/lib/utils";
 
 export default function ChatPage() {
 	const { messages, sendMessage, status } = useChat({
@@ -27,6 +28,14 @@ export default function ChatPage() {
 	async function handleSubmit(e: React.FormEvent) {
 		e.preventDefault();
 		if (!input.trim()) return;
+
+		pushGtmEvent({
+			event: "manual_chat_send",
+			category: "Chat",
+			action: "Send Message",
+			label: "AI Chat",
+			prompt_length: input,
+		});
 
 		sendMessage({ text: input });
 		setInput("");
@@ -69,6 +78,14 @@ export default function ChatPage() {
 											text: "Tell me about your capabilities",
 										})
 									}
+									gtmEvent={{
+										event: "quick_start_click",
+										category: "Chat",
+										action: "Select Prompt",
+										label: "What can you do?",
+										prompt_text:
+											"Tell me about your capabilities",
+									}}
 									variant='outline'
 									className='p-4 rounded-lg border-2 transition-all text-left font-medium h-auto justify-start'
 								>
@@ -80,6 +97,14 @@ export default function ChatPage() {
 											text: "How do I build a web app?",
 										})
 									}
+									gtmEvent={{
+										event: "quick_start_click",
+										category: "Chat",
+										action: "Select Prompt",
+										label: "Build a web app",
+										prompt_text:
+											"How do I build a web app?",
+									}}
 									variant='outline'
 									className='p-4 rounded-lg border-2 transition-all text-left font-medium h-auto justify-start'
 								>
@@ -91,6 +116,13 @@ export default function ChatPage() {
 											text: "Help me debug this code",
 										})
 									}
+									gtmEvent={{
+										event: "quick_start_click",
+										category: "Chat",
+										action: "Select Prompt",
+										label: "Debug code",
+										prompt_text: "Help me debug this code",
+									}}
 									variant='outline'
 									className='p-4 rounded-lg border-2 transition-all text-left font-medium h-auto justify-start'
 								>
@@ -102,6 +134,13 @@ export default function ChatPage() {
 											text: "Show me a code example",
 										})
 									}
+									gtmEvent={{
+										event: "quick_start_click",
+										category: "Chat",
+										action: "Select Prompt",
+										label: "Code examples",
+										prompt_text: "Show me a code example",
+									}}
 									variant='outline'
 									className='p-4 rounded-lg border-2 transition-all text-left font-medium h-auto justify-start'
 								>

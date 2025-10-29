@@ -26,6 +26,7 @@ import {
 } from "@/components/ui/card";
 import { contactInfo, socialLinks } from "@/data";
 import Link from "next/link";
+import { pushGtmEvent } from "@/lib/utils";
 // import {
 // 	Alert,
 // 	AlertDescription,
@@ -68,6 +69,17 @@ export default function ContactPage() {
 	const onSubmit = async (values: ContactFormValues) => {
 		setIsSubmitting(true);
 		setSubmitStatus({ type: null, message: "" });
+
+		pushGtmEvent({
+			event: "form_submission",
+			category: "Contact",
+			action: "Form Submitted",
+			label: values.subject,
+			submission_data: {
+				name_present: !!values.name,
+				message_length: values.message.length,
+			},
+		});
 
 		try {
 			const response = await fetch("/api/contact", {
@@ -140,12 +152,12 @@ export default function ContactPage() {
 													{info.label}
 												</p>
 												{info.href ? (
-													<a
+													<Link
 														href={info.href}
 														className=' font-medium hover:text-blue-600 transition-colors'
 													>
 														{info.value}
-													</a>
+													</Link>
 												) : (
 													<p className=' font-medium'>
 														{info.value}
@@ -202,19 +214,25 @@ export default function ContactPage() {
 								</CardTitle>
 							</CardHeader>
 							<CardContent className='space-y-2'>
-								<a
+								<Link
 									href='mailto:tushar@example.com?subject=Hello%20Tushar'
 									className='block'
 								>
 									<Button
 										variant='outline'
 										className='w-full justify-start'
+										gtmEvent={{
+											event: "quick_reach_out",
+											category: "Contact",
+											action: "Send Email Click",
+											label: "mailto link",
+										}}
 									>
 										<Mail className='w-4 h-4 mr-2' />
 										Send Email
 									</Button>
-								</a>
-								<a
+								</Link>
+								<Link
 									href='https://calendly.com/tusharyadav21'
 									target='_blank'
 									rel='noopener noreferrer'
@@ -223,10 +241,16 @@ export default function ContactPage() {
 									<Button
 										variant='outline'
 										className='w-full justify-start'
+										gtmEvent={{
+											event: "quick_reach_out",
+											category: "Contact",
+											action: "Schedule Call Click",
+											label: "Calendly link",
+										}}
 									>
 										📅 Schedule Call
 									</Button>
-								</a>
+								</Link>
 							</CardContent>
 						</Card>
 					</div>
@@ -388,7 +412,15 @@ export default function ContactPage() {
 								integration, or just a quick chat, I&apos;m
 								always open to collaborations.
 							</p>
-							<Button className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg rounded-lg'>
+							<Button
+								className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 text-lg rounded-lg'
+								gtmEvent={{
+									event: "cta_interaction",
+									category: "Contact",
+									action: "Start Project CTA",
+									label: "Bottom CTA button",
+								}}
+							>
 								Start a Project
 							</Button>
 						</CardContent>

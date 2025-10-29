@@ -10,7 +10,15 @@ export default function CTAButtons() {
 		<div className='flex flex-wrap gap-4 max-w-3xl'>
 			{/* CTA Buttons */}
 			<Link href='/projects'>
-				<Button className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-base rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2'>
+				<Button
+					gtmEvent={{
+						event: "cta_interaction",
+						category: "Hero",
+						action: "View My Work",
+						label: "Hero Section",
+					}}
+					className='bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-6 text-base rounded-lg font-medium shadow-lg hover:shadow-xl transition-all duration-300 flex items-center gap-2'
+				>
 					View My Work
 					<ArrowRight className='w-5 h-5' />
 				</Button>
@@ -18,25 +26,37 @@ export default function CTAButtons() {
 			<Link href='/contact'>
 				<Button
 					variant='outline'
+					gtmEvent={{
+						event: "cta_interaction",
+						category: "Hero",
+						action: "Get In Touch",
+						label: "Hero Section",
+					}}
 					className='border-2 border-gray-300  hover:bg-gray-50 px-8 py-6 text-base rounded-lg font-medium transition-all duration-300 flex items-center gap-2'
 				>
 					Get In Touch
 					<ArrowRight className='w-5 h-5' />
 				</Button>
 			</Link>
-			<a
-				href='/resume.pdf'
+			<Link
+				href={`${process.env.RESUME_LINK}`}
 				target='_blank'
 				rel='noopener noreferrer'
 			>
 				<Button
 					variant='outline'
+					gtmEvent={{
+						event: "cta_interaction",
+						category: "Hero",
+						action: "Download Resume",
+						label: "Hero Section",
+					}}
 					className='border-2 border-gray-300  hover:bg-gray-50 px-8 py-6 text-base rounded-lg font-medium transition-all duration-300 flex items-center gap-2'
 				>
 					<Download className='w-5 h-5' />
 					Download Resume
 				</Button>
-			</a>
+			</Link>
 		</div>
 	);
 }

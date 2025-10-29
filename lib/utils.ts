@@ -1,6 +1,35 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+	return twMerge(clsx(inputs));
 }
+
+export interface GtmEventData {
+	event: string;
+	category: string;
+	action: string;
+	label: string;
+	prompt_length?: string;
+	submission_data?: {
+		name_present: boolean;
+		message_length: number;
+	};
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	[key: string]: any;
+}
+
+export const pushGtmEvent = (eventData: GtmEventData) => {
+	if (
+		eventData &&
+		typeof window !== "undefined" &&
+		window?.dataLayer
+	) {
+		try {
+			window?.dataLayer.push(eventData);
+			// console.log("GTM Event Sent:", eventData);
+		} catch (error) {
+			console.error("GTM dataLayer push failed:", error);
+		}
+	}
+};

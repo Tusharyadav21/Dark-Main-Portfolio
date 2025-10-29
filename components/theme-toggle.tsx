@@ -3,8 +3,15 @@
 import React, { useState, useEffect } from "react";
 import { Button } from "./ui/button";
 import { CloudMoon, CloudSun } from "lucide-react";
+import { GtmEventData } from "@/lib/utils";
 
-const ThemeToggle = ({ className = "" }) => {
+const ThemeToggle = ({
+	className = "",
+	gtmEvent,
+}: {
+	className?: string;
+	gtmEvent: GtmEventData;
+}) => {
 	const [theme, setTheme] = useState(() => {
 		if (typeof window === "undefined") return "dark";
 
@@ -46,6 +53,7 @@ const ThemeToggle = ({ className = "" }) => {
 		<Button
 			onClick={toggleTheme}
 			className={`${className}`}
+			gtmEvent={gtmEvent}
 		>
 			{theme === "light" ? (
 				<CloudMoon height={28} width={28} fill='#fffff' />
