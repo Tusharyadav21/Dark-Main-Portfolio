@@ -1,6 +1,12 @@
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
+declare global {
+	interface Window {
+		dataLayer?: Record<string, unknown>[];
+	}
+}
+
 export function cn(...inputs: ClassValue[]) {
 	return twMerge(clsx(inputs));
 }
@@ -23,10 +29,10 @@ export const pushGtmEvent = (eventData: GtmEventData) => {
 	if (
 		eventData &&
 		typeof window !== "undefined" &&
-		window?.dataLayer
+		window.dataLayer
 	) {
 		try {
-			window?.dataLayer.push(eventData);
+			window.dataLayer.push(eventData);
 			// console.log("GTM Event Sent:", eventData);
 		} catch (error) {
 			console.error("GTM dataLayer push failed:", error);

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { SidebarProvider } from "@/components/ui/sidebar";
-import { AppSidebar } from "@/components/app-sidebar";
-import { TopBar } from "@/components/top-bar";
 import {
 	GoogleAnalytics,
 	GoogleTagManager,
@@ -20,43 +17,36 @@ const geistMono = Geist_Mono({
 	subsets: ["latin"],
 });
 
+import { getPortfolioData } from "@/lib/portfolio";
+
+const portfolio = getPortfolioData();
+
 export const metadata: Metadata = {
 	title: {
-		default:
-			"Tushar Yadav - Full Stack Developer & Problem Solver",
-		template: "%s | Tushar Yadav",
+		default: portfolio.metadata.title,
+		template: portfolio.metadata.titleTemplate,
 	},
-	metadataBase: new URL("https://dark-main.netlify.app"),
-	description:
-		"Full Stack Developer specializing in MERN stack, JavaScript and Python. Building scalable web applications with 3+ years of experience.",
-	keywords: [
-		"Full Stack Developer",
-		"MERN Stack Developer",
-		"ReactJS Developer",
-		"Node.js Developer",
-		"JavaScript Developer",
-		"NextJs Developer",
-		"Python Developer",
-	],
+	metadataBase: new URL(portfolio.metadata.basePath),
+	description: portfolio.metadata.description,
+	keywords: portfolio.metadata.keywords,
 	openGraph: {
 		type: "website",
 		locale: "en_US",
-		url: "https://tusharyadav.com",
-		title: "Tushar Yadav - Full Stack Developer",
-		description:
-			"Full Stack Developer specializing in MERN stack with 3+ years of experience",
+		url: portfolio.metadata.basePath,
+		title: portfolio.metadata.openGraph.title,
+		description: portfolio.metadata.openGraph.description,
 		images: [
 			{
-				url: "/portfolio_picture.png",
+				url: portfolio.metadata.openGraph.image,
 				width: 1024,
 				height: 1024,
 			},
 		],
 	},
 	twitter: {
-		card: "summary_large_image",
-		title: "Tushar Yadav - Full Stack Developer",
-		images: ["/portfolio_picture.png"],
+		card: portfolio.metadata.twitter.card,
+		title: portfolio.metadata.twitter.title,
+		images: [portfolio.metadata.twitter.image],
 	},
 };
 
@@ -70,13 +60,9 @@ export default function RootLayout({
 			<body
 				className={`${geistSans.variable} ${geistMono.variable} antialiased`}
 			>
-				<SidebarProvider>
-					<AppSidebar />
-					<TopBar />
-					<main className='flex-1 min-h-screen py-16 px-4 sm:px-6 lg:px-8'>
-						{children}
-					</main>
-				</SidebarProvider>
+				<main className='flex-1 min-h-screen py-24 px-6 md:px-8'>
+					{children}
+				</main>
 			</body>
 			<GoogleAnalytics
 				gaId={process.env.NEXT_PUBLIC_GA_ID || ""}

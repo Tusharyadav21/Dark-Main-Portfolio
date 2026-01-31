@@ -1,92 +1,162 @@
+import dynamic from "next/dynamic";
 import CTAButtons from "@/components/cta-buttons";
+import { getPortfolioData } from "@/lib/portfolio";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import type { Components } from "react-markdown";
 
+// Optimize by lazy loading non-critical sections
+const CareerSection = dynamic(
+	() => import("@/components/career-section"),
+	{
+		loading: () => (
+			<div className='h-96 animate-pulse bg-gray-50 dark:bg-gray-900 rounded-[2.5rem] mb-20' />
+		),
+		ssr: true,
+	},
+);
+
+const ProjectsSection = dynamic(
+	() => import("@/components/projects-section"),
+	{
+		loading: () => (
+			<div className='h-96 animate-pulse bg-gray-50 dark:bg-gray-900 rounded-[2.5rem] mb-20' />
+		),
+		ssr: true,
+	},
+);
+
+const ContactSection = dynamic(
+	() => import("@/components/contact-section"),
+	{
+		loading: () => (
+			<div className='h-96 animate-pulse bg-gray-50 dark:bg-gray-900 rounded-[2.5rem] mb-20' />
+		),
+		ssr: true,
+	},
+);
+
+import ChatbotWrapper from "@/components/chatbot-wrapper";
+
+// Markdown component overrides - extracted to prevent re-creation on each render
+const markdownComponents: Components = {
+	h2: ({ children, ...props }) => (
+		<div className='mb-10 last:mb-0'>
+			<h2
+				className='text-3xl md:text-4xl font-black mt-0 mb-3 tracking-tight'
+				{...props}
+			>
+				{children}
+			</h2>
+			<div className='h-1.5 w-16 bg-linear-to-r from-blue-600 to-purple-600 rounded-full' />
+		</div>
+	),
+	p: ({ children, ...props }) => (
+		<p
+			className='text-xl leading-relaxed text-gray-600 dark:text-gray-300 mb-8 last:mb-0 font-medium'
+			{...props}
+		>
+			{children}
+		</p>
+	),
+	strong: ({ children, ...props }) => (
+		<strong
+			className='font-black text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/20 px-1 rounded-md'
+			{...props}
+		>
+			{children}
+		</strong>
+	),
+	ul: ({ children, ...props }) => (
+		<ul className='space-y-4 mb-10 list-none' {...props}>
+			{children}
+		</ul>
+	),
+	li: ({ children, ...props }) => (
+		<li
+			className='text-lg leading-relaxed text-gray-600 dark:text-gray-300 pl-0'
+			{...props}
+		>
+			{children}
+		</li>
+	),
+	blockquote: ({ children, ...props }) => (
+		<blockquote
+			className='border-l-4 border-blue-600 pl-6 py-4 my-8 italic text-xl text-gray-700 dark:text-gray-300 bg-blue-50/50 dark:bg-blue-900/10 rounded-r-lg'
+			{...props}
+		>
+			{children}
+		</blockquote>
+	),
+};
 export default function Home() {
+	const portfolio = getPortfolioData();
+
 	return (
-		<>
-			<div className='max-w-4xl mx-auto w-full'>
-				{/* Main Greeting */}
-				<div className='mb-16'>
-					<h1 className='text-6xl md:text-7xl font-bold  mb-4 tracking-tight'>
-						Hi, I&apos;m Tushar
+		<div className='max-w-4xl mx-auto w-full'>
+			{/* Hero Section */}
+			<section
+				id='home'
+				className='min-h-[60vh] flex flex-col justify-center pb-24 scroll-mt-24'
+			>
+				<div className='mb-12'>
+					<h1 className='text-6xl md:text-8xl font-black mb-6 tracking-tight bg-linear-to-r from-gray-900 via-gray-700 to-gray-500 dark:from-white dark:via-gray-300 dark:to-gray-500 bg-clip-text text-transparent'>
+						{portfolio.home.greeting}
 					</h1>
-					<div className='h-1 w-24 bg-linear-to-r from-blue-600 to-purple-600 mb-8' />
-					<h2 className='text-3xl md:text-4xl font-semibold '>
-						Full Stack Developer & Problem Solver
+					<div className='h-2 w-32 bg-linear-to-r from-blue-600 to-purple-600 mb-10 rounded-full shadow-lg shadow-blue-500/20' />
+					<h2 className='text-3xl md:text-5xl font-bold text-gray-800 dark:text-gray-200 leading-tight mb-12'>
+						{portfolio.home.subheading}
 					</h2>
-				</div>
-
-				{/* About Sections */}
-				<div className='space-y-12 mb-12'>
-					{/* Foundation & Journey */}
-					<div className='max-w-3xl'>
-						<h3 className='text-2xl font-bold  mb-4'>
-							Foundation & Journey
-						</h3>
-						<p className='text-base  leading-relaxed'>
-							I&apos;m a dedicated MERN Stack Developer with
-							a solid academic foundation in Mechanical
-							Engineering from KIIT University, complemented
-							by a minor in Computer Science. This unique
-							blend of technical disciplines has equipped me
-							with a distinctive perspective, fueling my
-							passion for innovative problem-solving and
-							effective application design.
-						</p>
-					</div>
-
-					{/* Crafting Solutions */}
-					<div className='max-w-3xl'>
-						<h3 className='text-2xl font-bold  mb-4'>
-							Crafting Innovative Web Solutions
-						</h3>
-						<p className='text-base  leading-relaxed'>
-							Currently at Suventure Services, I specialize
-							in developing robust full-stack web
-							applications using ReactJS, Node.js, and
-							JavaScript. I am committed to delivering
-							scalable, high-performance solutions that
-							drive measurable impact. My focus is on
-							building applications that solve real-world
-							problems with elegance and efficiency.
-						</p>
+					<div className='flex justify-center md:justify-start'>
+						<CTAButtons
+							resumeLink={portfolio.profile.resumeLink}
+						/>
 					</div>
 				</div>
-				<CTAButtons />
 
-				{/* Optional: Stats Section */}
-				<div className='mt-16 pt-16 border-t border-gray-200'>
-					<div className='grid grid-cols-2 md:grid-cols-4 gap-8'>
-						<div>
-							<p className='text-3xl font-bold text-blue-600'>
-								3+
-							</p>
-							<p className=' text-sm mt-1'>
-								Years Experience
-							</p>
+				{/* Quick Stats Section In Hero */}
+				<div className='mt-8 flex flex-wrap gap-8'>
+					{portfolio.home.stats.map((stat) => (
+						<div key={stat.label} className='flex flex-col'>
+							<span className='text-2xl font-black text-blue-600 dark:text-blue-500'>
+								{stat.value}
+							</span>
+							<span className='text-[10px] font-bold uppercase tracking-widest text-gray-400'>
+								{stat.label}
+							</span>
 						</div>
-						<div>
-							<p className='text-3xl font-bold text-blue-600'>
-								10+
-							</p>
-							<p className=' text-sm mt-1'>
-								Projects Completed
-							</p>
-						</div>
-						<div>
-							<p className='text-3xl font-bold text-blue-600'>
-								5+
-							</p>
-							<p className=' text-sm mt-1'>Tech Stack</p>
-						</div>
-						<div>
-							<p className='text-3xl font-bold text-blue-600'>
-								100%
-							</p>
-							<p className=' text-sm mt-1'>Dedication</p>
-						</div>
-					</div>
+					))}
 				</div>
+			</section>
+
+			{/* About Section */}
+			<section
+				id='about'
+				className='py-24 scroll-mt-24 relative'
+			>
+				{/* Decorative background elements */}
+				<div className='absolute -top-24 -right-24 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl group-hover:bg-blue-500/15 transition-colors duration-700' />
+				<div className='absolute -bottom-24 -left-24 w-80 h-80 bg-purple-500/10 rounded-full blur-3xl group-hover:bg-purple-500/15 transition-colors duration-700' />
+
+				<div className='relative prose dark:prose-invert max-w-none'>
+					<ReactMarkdown
+						remarkPlugins={[remarkGfm]}
+						components={markdownComponents}
+					>
+						{portfolio.content}
+					</ReactMarkdown>
+				</div>
+			</section>
+
+			{/* Feature Sections */}
+			<div className='space-y-24'>
+				<CareerSection portfolio={portfolio} />
+				<ProjectsSection portfolio={portfolio} />
+				<ContactSection portfolio={portfolio} />
 			</div>
-		</>
+
+			{/* Global UI */}
+			<ChatbotWrapper />
+		</div>
 	);
 }

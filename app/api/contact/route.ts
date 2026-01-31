@@ -21,8 +21,8 @@ export async function POST(request: Request) {
 		}
 
 		const sanitizedMessage = validatedData.message
-			.replace(/</g, "&lt;")
-			.replace(/>/g, "&gt;");
+			.replaceAll("<", "&lt;")
+			.replaceAll(">", "&gt;");
 
 		await resend.emails.send({
 			from: "onboarding@resend.dev",
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
 		return Response.json(
 			{ success: true },
-			{ status: 200 }
+			{ status: 200 },
 		);
 	} catch (error) {
 		if (error instanceof z.ZodError) {
@@ -48,7 +48,7 @@ export async function POST(request: Request) {
 					error: "Invalid input",
 					details: error.issues,
 				},
-				{ status: 400 }
+				{ status: 400 },
 			);
 		}
 
@@ -57,7 +57,7 @@ export async function POST(request: Request) {
 				success: false,
 				error: "Failed to send message",
 			},
-			{ status: 500 }
+			{ status: 500 },
 		);
 	}
 }

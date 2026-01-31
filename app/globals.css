@@ -4,6 +4,12 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
+	/* Spacing tokens */
+	--spacing-section: 6rem; /* 96px - Space between major sections */
+	--spacing-section-inner: 4rem; /* 64px - Padding within sections */
+	--spacing-header: 3rem; /* 48px - Space below section headers */
+	--spacing-container-x: 1rem; /* 16px - Base horizontal padding */
+
 	--color-background: var(--background);
 	--color-foreground: var(--foreground);
 	--font-sans: var(--font-geist-sans);

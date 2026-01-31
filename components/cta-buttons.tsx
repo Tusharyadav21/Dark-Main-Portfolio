@@ -5,11 +5,15 @@ import React from "react";
 import { Button } from "./ui/button";
 import { ArrowRight, Download } from "lucide-react";
 
-export default function CTAButtons() {
+export default function CTAButtons({
+	resumeLink,
+}: {
+	readonly resumeLink: string;
+}) {
 	return (
 		<div className='flex flex-wrap gap-4 max-w-3xl'>
 			{/* CTA Buttons */}
-			<Link href='/projects'>
+			<Link href='/#projects'>
 				<Button
 					gtmEvent={{
 						event: "cta_interaction",
@@ -25,7 +29,7 @@ export default function CTAButtons() {
 					</>
 				</Button>
 			</Link>
-			<Link href='/contact'>
+			<Link href='/#contact'>
 				<Button
 					variant='outline'
 					gtmEvent={{
@@ -43,7 +47,7 @@ export default function CTAButtons() {
 				</Button>
 			</Link>
 			<Link
-				href={`${process.env.RESUME_LINK}`}
+				href={resumeLink}
 				target='_blank'
 				rel='noopener noreferrer'
 			>

@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from "react";
 import { Slot } from "@radix-ui/react-slot";
 import {
@@ -41,7 +43,7 @@ const buttonVariants = cva(
 			variant: "default",
 			size: "default",
 		},
-	}
+	},
 );
 
 type ButtonProps = React.ComponentProps<"button"> &
@@ -62,7 +64,7 @@ function Button({
 	const Comp = asChild ? Slot : "button";
 
 	const handleCombinedClick = (
-		event: React.MouseEvent<HTMLButtonElement>
+		event: React.MouseEvent<HTMLButtonElement>,
 	) => {
 		if (gtmEvent) {
 			pushGtmEvent(gtmEvent);
@@ -77,7 +79,7 @@ function Button({
 		<Comp
 			data-slot='button'
 			className={cn(
-				buttonVariants({ variant, size, className })
+				buttonVariants({ variant, size, className }),
 			)}
 			onClick={handleCombinedClick}
 			{...props}

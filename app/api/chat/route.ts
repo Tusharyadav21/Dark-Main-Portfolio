@@ -1,4 +1,4 @@
-import { systemPrompts } from "@/data";
+import { getPortfolioData } from "@/lib/portfolio";
 import { google } from "@ai-sdk/google";
 import {
 	streamText,
@@ -10,22 +10,50 @@ import {
 export const maxDuration = 120;
 
 export async function POST(req: Request) {
-	const {
-		messages,
-		assistantType,
-	}: {
-		messages: UIMessage[];
-		assistantType?: keyof typeof systemPrompts;
-	} = await req.json();
+	try {
+		const portfolio = getPortfolioData();
+		const {
+			messages,
+			assistantType,
+		}: {
+			messages: UIMessage[];
+			assistantType?: keyof typeof portfolio.systemPrompts;
+		} = await req.json();
 
-	const result = streamText({
-		model: google("gemini-2.0-flash"),
-		system: systemPrompts[assistantType || "general"],
-		messages: convertToModelMessages(messages),
-		maxOutputTokens: 512,
-		temperature: 0.3,
-		maxRetries: 5,
-	});
+		if (!messages || !Array.isArray(messages)) {
+			return new Response(
+				JSON.stringify({
+					error: "Invalid messages format",
+				}),
+				{
+					status: 400,
+					headers: { "Content-Type": "application/json" },
+				},
+			);
+		}
 
-	return result.toUIMessageStreamResponse();
+		const result = streamText({
+			model: google("gemini-2.0-flash"),
+			system:
+				portfolio.systemPrompts[assistantType || "general"],
+			messages: await convertToModelMessages(messages),
+			maxOutputTokens: 512,
+			temperature: 0.8,
+			maxRetries: 1,
+		});
+
+		return result.toUIMessageStreamResponse();
+	} catch (error) {
+		console.error("Chat API error:", error);
+		return new Response(
+			JSON.stringify({
+				error:
+					"Failed to process chat request. Please try again.",
+			}),
+			{
+				status: 500,
+				headers: { "Content-Type": "application/json" },
+			},
+		);
+	}
 }
