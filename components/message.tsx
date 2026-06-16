@@ -5,8 +5,6 @@ import {
 	AvatarImage,
 	AvatarFallback,
 } from "@/components/ui/avatar";
-import { CheckCheck } from "lucide-react";
-
 import { UIMessage as AIMessage } from "ai";
 
 interface MessagesProps {

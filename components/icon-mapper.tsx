@@ -2,7 +2,6 @@ import {
 	Mail,
 	Phone,
 	MapPin,
-	Linkedin,
 	ExternalLink,
 	Home,
 	BriefcaseBusiness,
@@ -10,13 +9,14 @@ import {
 	PhoneCall,
 } from "lucide-react";
 import { GitHubIcon } from "@/components/icons/github-icon";
+import { LinkedinIcon } from "@/components/icons/linkedin-icon";
 
 export const IconMap: Record<string, React.ElementType> = {
 	Mail,
 	Phone,
 	MapPin,
 	Github: GitHubIcon,
-	Linkedin,
+	Linkedin: LinkedinIcon,
 	ExternalLink,
 	Home,
 	BriefcaseBusiness,
