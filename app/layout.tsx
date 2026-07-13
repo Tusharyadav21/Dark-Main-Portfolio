@@ -19,36 +19,45 @@ const geistMono = Geist_Mono({
 
 import { getPortfolioData } from "@/lib/portfolio";
 
-const portfolio = getPortfolioData();
-
-export const metadata: Metadata = {
-	title: {
-		default: portfolio.metadata.title,
-		template: portfolio.metadata.titleTemplate,
-	},
-	metadataBase: new URL(portfolio.metadata.basePath),
-	description: portfolio.metadata.description,
-	keywords: portfolio.metadata.keywords,
-	openGraph: {
-		type: "website",
-		locale: "en_US",
-		url: portfolio.metadata.basePath,
-		title: portfolio.metadata.openGraph.title,
-		description: portfolio.metadata.openGraph.description,
-		images: [
-			{
-				url: portfolio.metadata.openGraph.image,
-				width: 1024,
-				height: 1024,
-			},
-		],
-	},
-	twitter: {
-		card: portfolio.metadata.twitter.card,
-		title: portfolio.metadata.twitter.title,
-		images: [portfolio.metadata.twitter.image],
-	},
-};
+export async function generateMetadata(): Promise<Metadata> {
+	const portfolio = await getPortfolioData();
+	
+	return {
+		title: {
+			default: portfolio.metadata.title,
+			template: portfolio.metadata.titleTemplate,
+		},
+		metadataBase: new URL(portfolio.metadata.basePath),
+		description: portfolio.metadata.description,
+		keywords: portfolio.metadata.keywords,
+		openGraph: {
+			type: "website",
+			locale: "en_US",
+			url: portfolio.metadata.basePath,
+			title: portfolio.metadata.openGraph.title,
+			description: portfolio.metadata.openGraph.description,
+			...(portfolio.metadata.openGraph.image && {
+				images: [
+					{
+						url: portfolio.metadata.openGraph.image,
+						width: 1024,
+						height: 1024,
+					},
+				],
+			}),
+		},
+		twitter: {
+			card: portfolio.metadata.twitter.card,
+			title: portfolio.metadata.twitter.title,
+			...(portfolio.metadata.twitter.image && {
+				images: [portfolio.metadata.twitter.image],
+			}),
+		},
+		icons: {
+			icon: "/icon.svg",
+		},
+	};
+}
 
 export default function RootLayout({
 	children,

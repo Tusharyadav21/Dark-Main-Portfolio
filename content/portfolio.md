@@ -15,11 +15,9 @@ metadata:
   openGraph:
     title: "Tushar Yadav - AI Full Stack Software Engineer"
     description: "AI & Full-Stack Engineer specializing in scalable microservices and production-grade GenAI systems."
-    image: "/portfolio_picture.png"
   twitter:
     card: "summary_large_image"
     title: "Tushar Yadav - AI Full Stack Software Engineer"
-    image: "/portfolio_picture.png"
 
 profile:
   name: "Tushar Yadav"

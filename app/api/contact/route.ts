@@ -1,7 +1,9 @@
 import { Resend } from "resend";
 import { z } from "zod";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
+function getResend() {
+	return new Resend(process.env.RESEND_API_KEY);
+}
 
 const contactSchema = z.object({
 	name: z.string().min(2).max(100),
@@ -24,6 +26,7 @@ export async function POST(request: Request) {
 			.replaceAll("<", "&lt;")
 			.replaceAll(">", "&gt;");
 
+		const resend = getResend();
 		await resend.emails.send({
 			from: "onboarding@resend.dev",
 			to: emailUser,

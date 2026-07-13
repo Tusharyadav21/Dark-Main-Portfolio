@@ -105,6 +105,17 @@ export default function ProjectsSection({
 
 							{/* Buttons */}
 							<div className='flex gap-3'>
+								<Link
+									href={`/projects/${project.slug}`}
+									className='flex-1'
+								>
+									<Button
+										variant='outline'
+										className='w-full border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 rounded-xl text-xs py-2.5 flex items-center justify-center gap-2 transition-all duration-300'
+									>
+										View Details
+									</Button>
+								</Link>
 								{project.liveUrl && (
 									<Link
 										href={project.liveUrl}

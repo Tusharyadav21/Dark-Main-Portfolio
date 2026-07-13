@@ -89,8 +89,8 @@ const markdownComponents: Components = {
 		</blockquote>
 	),
 };
-export default function Home() {
-	const portfolio = getPortfolioData();
+export default async function Home() {
+	const portfolio = await getPortfolioData();
 
 	return (
 		<div className='max-w-4xl mx-auto w-full'>

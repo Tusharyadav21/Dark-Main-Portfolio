@@ -11,7 +11,7 @@ export const maxDuration = 120;
 
 export async function POST(req: Request) {
 	try {
-		const portfolio = getPortfolioData();
+		const portfolio = await getPortfolioData();
 		const {
 			messages,
 			assistantType,
