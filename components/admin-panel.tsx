@@ -370,27 +370,44 @@ export default function AdminPanel() {
 	const [loading, setLoading] = useState(true);
 	const [authenticated, setAuthenticated] = useState(false);
 
-	const fetchFiles = useCallback(async () => {
+	const fetchContentData = useCallback(async () => {
 		try {
 			const res = await fetch("/api/admin/content");
 			if (res.status === 401) {
-				setAuthenticated(false);
-				setLoading(false);
-				return;
+				return { auth: false, files: [] };
 			}
 			const data = await res.json();
-			setFiles(data.files || []);
-			setAuthenticated(true);
+			return { auth: true, files: data.files || [] };
 		} catch {
-			setAuthenticated(false);
-		} finally {
-			setLoading(false);
+			return { auth: false, files: [] };
 		}
 	}, []);
 
+	const fetchFiles = useCallback(async () => {
+		const result = await fetchContentData();
+		if (result.auth) {
+			setFiles(result.files);
+			setAuthenticated(true);
+		} else {
+			setAuthenticated(false);
+		}
+		setLoading(false);
+	}, [fetchContentData]);
+
 	useEffect(() => {
-		fetchFiles();
-	}, [fetchFiles]);
+		let isMounted = true;
+		fetchContentData().then(result => {
+			if (!isMounted) return;
+			if (result.auth) {
+				setFiles(result.files);
+				setAuthenticated(true);
+			} else {
+				setAuthenticated(false);
+			}
+			setLoading(false);
+		});
+		return () => { isMounted = false; };
+	}, [fetchContentData]);
 
 	const handleSave = async (
 		slug: string,

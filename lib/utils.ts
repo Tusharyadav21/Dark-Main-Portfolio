@@ -33,7 +33,6 @@ export const pushGtmEvent = (eventData: GtmEventData) => {
 	) {
 		try {
 			window.dataLayer.push(eventData);
-			// console.log("GTM Event Sent:", eventData);
 		} catch (error) {
 			console.error("GTM dataLayer push failed:", error);
 		}

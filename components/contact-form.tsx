@@ -93,7 +93,7 @@ export function ContactForm() {
 				message:
 					"Oops! Something went wrong. Please try again later.",
 			});
-			console.log(err);
+			console.error(err);
 		} finally {
 			setIsSubmitting(false);
 		}
