@@ -1,14 +1,15 @@
-import { z } from "zod";
-import { Octokit } from "octokit";
 import {
-	validateContent,
 	CONTENT_SLUGS,
+	validateContent,
 	type ContentSlug,
 } from "@/lib/content-schemas";
+import { revalidatePath } from "next/cache";
+import { promises as fs } from "node:fs";
+import path from "node:path";
+import { Octokit } from "octokit";
+import { z } from "zod";
 
-// ---------------------------------------------------------------------------
 // Validation
-// ---------------------------------------------------------------------------
 
 const saveSchema = z.object({
 	slug: z.string().refine((s) => CONTENT_SLUGS.includes(s as ContentSlug)),
@@ -16,9 +17,7 @@ const saveSchema = z.object({
 	message: z.string().min(1).max(200).optional(),
 });
 
-// ---------------------------------------------------------------------------
 // Octokit setup
-// ---------------------------------------------------------------------------
 
 function getOctokit(): Octokit {
 	const token = process.env.GITHUB_TOKEN;
@@ -35,9 +34,7 @@ function getRepoParts(): { owner: string; repo: string } {
 	return { owner, repo: name };
 }
 
-// ---------------------------------------------------------------------------
 // Helpers
-// ---------------------------------------------------------------------------
 
 async function getFileSha(
 	octokit: Octokit,
@@ -60,9 +57,7 @@ async function getFileSha(
 	}
 }
 
-// ---------------------------------------------------------------------------
 // POST /api/admin/save
-// ---------------------------------------------------------------------------
 
 export async function POST(request: Request) {
 	try {
@@ -101,6 +96,18 @@ export async function POST(request: Request) {
 			content: Buffer.from(content).toString("base64"),
 			...(sha ? { sha } : {}),
 		});
+
+		// Attempt to update local file system (works in dev, expected to fail in Vercel)
+		try {
+			const absolutePath = path.join(process.cwd(), filePath);
+			await fs.writeFile(absolutePath, content, "utf8");
+		} catch (localError) {
+			console.warn("Could not write to local file system:", localError);
+		}
+
+		// Revalidate the Next.js cache so changes appear immediately
+		revalidatePath("/");
+		revalidatePath("/admin");
 
 		return Response.json({
 			success: true,
