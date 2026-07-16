@@ -1,27 +1,31 @@
 ---
 categories:
-  - category: "AI/LLM Engineering"
-    skills:
-      - name: "LangGraph"
-        icon: "cpu"
-      - name: "LangChain"
-        icon: "langchain"
-      - name: "RAG"
-        icon: "database"
-      - name: "Agentic Workflows"
-        icon: "bot"
   - category: "Backend"
     skills:
+      - name: "Go"
+        icon: "terminal"
       - name: "Python"
         icon: "python"
       - name: "FastAPI"
         icon: "fastapi"
-      - name: "Node.js"
-        icon: "nodejs"
-      - name: "Express.js"
-        icon: "express"
-      - name: "Golang"
-        icon: "terminal"
+      - name: "REST APIs"
+        icon: "globe"
+      - name: "Celery"
+        icon: "cpu"
+
+  - category: "AI / GenAI"
+    skills:
+      - name: "RAG"
+        icon: "database"
+      - name: "LangGraph"
+        icon: "cpu"
+      - name: "LangChain"
+        icon: "langchain"
+      - name: "Hybrid Retrieval"
+        icon: "search"
+      - name: "Agent Workflows"
+        icon: "bot"
+
   - category: "Frontend"
     skills:
       - name: "Next.js"
@@ -34,7 +38,8 @@ categories:
         icon: "javascript"
       - name: "Tailwind CSS"
         icon: "tailwind"
-  - category: "Databases & Caching"
+
+  - category: "Data & Infrastructure"
     skills:
       - name: "PostgreSQL"
         icon: "postgresql"
@@ -42,16 +47,21 @@ categories:
         icon: "redis"
       - name: "MongoDB"
         icon: "mongodb"
-  - category: "DevOps & Tools"
-    skills:
       - name: "Docker"
         icon: "docker"
-      - name: "AWS"
-        icon: "aws"
-      - name: "Keycloak"
-        icon: "keycloak"
-      - name: "ARQ"
-        icon: "terminal"
       - name: "Git"
         icon: "git"
+
+  - category: "Architecture & Performance"
+    skills:
+      - name: "Async Pipelines"
+        icon: "cpu"
+      - name: "Caching"
+        icon: "database"
+      - name: "System Design"
+        icon: "network"
+      - name: "Scalable APIs"
+        icon: "server"
+      - name: "Performance Optimization"
+        icon: "zap"
 ---
