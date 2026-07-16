@@ -4,80 +4,74 @@ entries:
     slug: "artha"
     title: "Artha"
     subtitle: "Local-First RAG Platform"
-    description: "Architected a completely local, Retrieval-Augmented Generation (RAG) platform utilizing FastAPI and Next.js, ensuring zero external API dependencies for strict data privacy."
+    description: "Architected a local-first RAG platform with FastAPI and Next.js, designed to run without external model APIs for privacy-sensitive document search."
     githubUrl: "https://github.com/Tusharyadav21/artha"
     tags: ["Python", "FastAPI", "LangGraph", "PostgreSQL", "Redis", "Ollama"]
     role: "Full Stack Developer"
     duration: "3 months"
     teamSize: "Solo"
     highlights:
-      - "Completely local RAG architecture for data privacy"
-      - "Asynchronous document ingestion using Redis and ARQ"
-      - "Advanced retrieval with Reciprocal Rank Fusion (RRF)"
-      - "Resilient agentic workflows with LangGraph state machines"
+      - "Local-first RAG architecture for privacy-sensitive document search"
+      - "Asynchronous ingestion pipeline with Redis and Celery"
+      - "Hybrid retrieval with vector search, trigram matching, RRF, and reranking"
+      - "LangGraph workflows with query rewriting, quality gates, and HyDE fallback"
     architecture: |
-      Artha uses a microservices architecture with FastAPI handling the API layer and Next.js providing the frontend. The RAG pipeline consists of:
-
-      1. **Document Ingestion**: Documents are parsed, chunked, and embedded using local Ollama models. Chunks are stored in PostgreSQL with pgvector for semantic search.
-
-      2. **Query Processing**: User queries go through a multi-step pipeline: query rewriting, HyDE (Hypothetical Document Embeddings) fallback, and hybrid search combining semantic and keyword matching.
-
-      3. **Retrieval**: Results are ranked using Reciprocal Rank Fusion (RRF) combining multiple retrieval strategies. A quality gate validates results before passing to the LLM.
-
-      4. **Generation**: The context-augmented prompt is sent to a local Ollama model for response generation with source citations.
+      Artha uses a local-first architecture with FastAPI handling the API layer and Next.js providing the frontend. The RAG pipeline consists of:
+      1. **Document Ingestion**: Documents are parsed, hierarchically chunked, embedded, and processed asynchronously using Redis and Celery to avoid blocking user workflows.
+      2. **Query Processing**: User queries pass through query rewriting, retrieval quality checks, and HyDE fallback paths when confidence is low.
+      3. **Retrieval**: Hybrid retrieval combines vector similarity, trigram search, Reciprocal Rank Fusion (RRF), and reranking to improve recall and precision on technical documents.
+      4. **Generation**: Context is passed to local Ollama models for grounded response generation, with GraphRAG-inspired relationship-aware retrieval patterns explored to improve context selection.
     challenges:
-      - "Handling document versioning and updates without re-indexing everything"
-      - "Optimizing local model performance without GPU acceleration"
-      - "Designing fault-tolerant agentic workflows with LangGraph"
-      - "Implementing effective quality gates for retrieval results"
+      - "Handling document versioning and updates without re-indexing entire corpora"
+      - "Optimizing local model performance and retrieval quality on technical documents"
+      - "Designing fault-tolerant LangGraph workflows with quality gates and fallbacks"
+      - "Balancing retrieval recall, precision, and latency in a hybrid search pipeline"
     learnings:
-      - "Local-first architecture requires careful resource management"
-      - "LangGraph state machines excel at complex workflow orchestration"
-      - "Reciprocal Rank Fusion significantly improves retrieval quality"
-      - "Async processing with Redis queues is essential for document ingestion"
+      - "Local-first systems require careful orchestration of compute, storage, and queueing"
+      - "Hybrid retrieval significantly improves robustness over single-strategy search"
+      - "LangGraph works well for resilient retrieval and decision workflows"
+      - "Asynchronous ingestion is essential for scalable document processing"
     futureWork:
-      - "Multi-modal document support (images, tables)"
-      - "Collaborative knowledge base with real-time sync"
-      - "Advanced analytics dashboard for query patterns"
+      - "Multi-modal document support for images, tables, and diagrams"
+      - "Collaborative knowledge base features with fine-grained access control"
+      - "Advanced retrieval evaluation and observability dashboards"
+
   - id: "2"
     slug: "articles"
     title: "Articles"
     subtitle: "AI-Assisted Publishing Platform"
-    description: "Architected a schema-driven content publishing platform leveraging a ProseMirror-based rich text editor (Tiptap). Engineered a scalable JSON-based document data model to ensure content consistency and seamless cross-platform rendering."
+    description: "Architected a decoupled content publishing platform with a Next.js frontend and Go backend, using a schema-driven ProseMirror JSON document model for structured storage, deterministic rendering, and scalable multi-client evolution."
     liveUrl: "https://articles.encaenia.co.in/"
-    tags: ["Next.js", "React", "Tiptap", "TypeScript", "GenAI"]
+    tags: ["Go", "Next.js", "React", "TypeScript", "Better Auth", "PostgreSQL", "GenAI"]
     role: "Full Stack Developer"
     duration: "2 months"
     teamSize: "Solo"
     highlights:
-      - "Schema-driven content publishing platform"
-      - "Scalable JSON-based document data model"
-      - "Custom editor extensions for AI-enhanced workflows"
-      - "Advanced React caching strategies for frontend optimization"
+      - "Decoupled Next.js frontend and Go backend for independent scalability"
+      - "Schema-driven ProseMirror JSON document model"
+      - "React Server Components, request deduplication, and caching optimizations"
+      - "AI-powered editing workflows for generation, rewriting, and contextual assistance"
     architecture: |
-      Articles uses a schema-first approach where content structure is defined in JSON Schema, enabling:
-
-      1. **Editor Layer**: Tiptap-based rich text editor with custom extensions for AI assistance, content validation, and real-time preview.
-
-      2. **Data Model**: JSON-based document format that separates content from presentation, enabling cross-platform rendering.
-
-      3. **AI Integration**: Custom extensions that leverage GenAI for content suggestions, SEO optimization, and readability analysis.
-
-      4. **Publishing Pipeline**: Automated content validation, image optimization, and deployment to multiple channels.
+      Articles uses a decoupled architecture with a Next.js frontend and Go backend to support maintainability and future multi-client expansion:
+      1. **Frontend Layer**: Next.js 16 with React and TypeScript powers the authoring and publishing experience using modern rendering patterns.
+      2. **Document Model**: A schema-driven ProseMirror JSON model stores structured content for deterministic rendering and extensible editor capabilities.
+      3. **Backend Services**: Go services handle content workflows, persistence, authentication integration, and publishing operations independently of the frontend.
+      4. **Performance & AI**: React Server Components, request deduplication, and caching reduce redundant network work, while AI-assisted editing features support drafting, rewriting, and contextual suggestions.
     challenges:
-      - "Designing a flexible schema system that supports diverse content types"
-      - "Implementing real-time collaboration without conflicts"
-      - "Optimizing editor performance with large documents"
-      - "Building AI extensions that enhance rather than disrupt the writing flow"
+      - "Designing a document model flexible enough for rich editorial workflows"
+      - "Keeping editor interactions fast while supporting structured content and AI features"
+      - "Maintaining clean boundaries between frontend rendering and backend content services"
+      - "Reducing redundant requests and improving rendering efficiency across the app"
     learnings:
-      - "Schema-driven approaches significantly improve content consistency"
-      - "Tiptap's extension system is powerful but requires careful performance tuning"
-      - "JSON-based content models enable excellent cross-platform compatibility"
-      - "AI assistance works best when it's opt-in and context-aware"
+      - "Decoupled systems improve maintainability and enable independent scaling"
+      - "Schema-driven content models make rendering more predictable and extensible"
+      - "React Server Components and caching can significantly improve perceived performance"
+      - "AI assistance is most useful when embedded directly into the authoring workflow"
     futureWork:
-      - "Real-time collaborative editing"
-      - "Multi-language content support"
-      - "Advanced analytics for content performance"
+      - "Multi-tenant support for multiple publications and clients"
+      - "Collaborative editing and editorial review workflows"
+      - "Analytics for content performance and author productivity"
+
   - id: "3"
     slug: "chat-api"
     title: "Chat API"
@@ -94,13 +88,9 @@ entries:
       - "Technical support workflow optimization"
     architecture: |
       Chat API implements a modular architecture with clear separation of concerns:
-
       1. **Conversation Manager**: Handles session state, message history, and context windowing for multi-turn conversations.
-
       2. **RAG Pipeline**: Retrieves relevant documents using semantic search and formats them as context for the LLM.
-
       3. **Tool Integration**: Structured tool access allows the LLM to query databases, APIs, and external services.
-
       4. **Response Generator**: Combines conversation history, retrieved context, and tool results to generate accurate responses.
     challenges:
       - "Managing context window limits while preserving conversation flow"
@@ -116,6 +106,7 @@ entries:
       - "Streaming response support"
       - "Multi-modal input (images, files)"
       - "Advanced tool orchestration"
+
   - id: "4"
     slug: "omdb-movie-app"
     title: "OMDB Movie App"
@@ -133,13 +124,9 @@ entries:
       - "Advanced filtering options"
     architecture: |
       A clean React application with:
-
       1. **Search Layer**: Debounced input with instant feedback and search history.
-
       2. **Filter System**: Genre, year, and rating filters with URL-based state management.
-
       3. **Caching Layer**: Client-side caching to minimize API calls and improve performance.
-
       4. **Detail Views**: Movie details with trailers, cast, and similar recommendations.
     challenges:
       - "Implementing efficient debouncing without lag"
@@ -155,6 +142,7 @@ entries:
       - "User watchlist and favorites"
       - "Social features (reviews, ratings)"
       - "Offline support with service workers"
+
   - id: "5"
     slug: "todo-app"
     title: "ToDo App"
@@ -172,13 +160,9 @@ entries:
       - "Clean, intuitive UI"
     architecture: |
       Simple yet effective Redux architecture:
-
       1. **Store**: Centralized state with Redux for predictable updates.
-
       2. **Actions**: Clear action types for CRUD operations.
-
       3. **Reducers**: Pure functions for state transformations.
-
       4. **Persistence**: LocalStorage integration for data survival across sessions.
     challenges:
       - "Designing intuitive drag-and-drop interactions"
@@ -194,6 +178,7 @@ entries:
       - "Collaborative task boards"
       - "Due dates and reminders"
       - "File attachments"
+
   - id: "6"
     slug: "url-shortener"
     title: "URL Shortener"
@@ -210,13 +195,9 @@ entries:
       - "RESTful API design"
     architecture: |
       A RESTful service with:
-
       1. **URL Service**: Handles URL validation, shortening, and redirection.
-
       2. **Analytics Engine**: Tracks clicks, referrers, and geographic data.
-
       3. **Storage Layer**: MongoDB for flexible document storage.
-
       4. **API Layer**: Express-based REST API with rate limiting and authentication.
     challenges:
       - "Designing collision-resistant short URL generation"
