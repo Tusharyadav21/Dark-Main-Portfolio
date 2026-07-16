@@ -3,25 +3,25 @@
 
 ## About Me
 
-**AI & Full-Stack Engineer** with nearly 4 years of experience specializing in architecting scalable microservices and production-grade GenAI systems. Deep expertise in designing robust Retrieval-Augmented Generation (RAG) pipelines, autonomous AI agents (LangGraph), and decoupled Python/Next.js architectures.
+**Backend-focused Software Engineer** with experience building scalable systems, GenAI applications, and modern web products. I work across Go, Python, FastAPI, and Next.js, with a strong focus on retrieval-augmented generation (RAG), backend architecture, and performance-oriented engineering.
 
 ## Foundation & Journey
 
-My journey began with a strong foundation in engineering at KIIT University, where I combined my mechanical engineering major with a computer science minor. This unique blend of disciplines shaped my approach to problem-solving — I think in systems, optimize for efficiency, and build for scale.
+My engineering journey started at KIIT University, where I studied mechanical engineering with a minor in computer science. That mix shaped how I approach software today — I think in systems, care about trade-offs, and enjoy building reliable products that are simple to operate and scale.
 
-## Solving Complex Engineering Challenges
+## What I Work On
 
-I am passionate about solving complex engineering challenges - from optimizing low-latency LLM streaming and hybrid search to building secure, event-driven infrastructure.
+I enjoy building backend-heavy products that sit at the intersection of software engineering and AI. My recent work includes local-first RAG systems, asynchronous document pipelines, hybrid retrieval, AI-assisted publishing workflows, and decoupled architectures designed for maintainability and future scale.
 
-## What I Bring to the Table
+## What I Bring
 
-- **AI/LLM Engineering**: LangGraph, LangChain, RAG (Hybrid Search, Reciprocal Rank Fusion, HyDE), Agentic Workflows
-- **Performance-First Architecture**: Go-Based Event-Driven AI and highly optimized legacy codebase refactoring
-- **Scalable Backend Design**: Designed scalable microservices and implemented complex distributed authentication via Keycloak (OIDC)
-- **Mentorship & Leadership**: Establishing organizational standards for API contracts, error handling, and environment parity
+- **Backend Engineering**: Go, Python, FastAPI, PostgreSQL, Redis, API design, async workflows.
+- **GenAI Systems**: RAG pipelines, LangGraph workflows, hybrid retrieval, query rewriting, reranking, and evaluation-focused design.
+- **Scalable Architecture**: Decoupled services, event-driven thinking, caching, queue-based processing, and performance optimization.
+- **Product Mindset**: I care about usability, clean abstractions, and building systems that are practical in production.
 
 ## Philosophy
 
-> "The goal isn't just to write code. It's to build experiences that scale and serve."
+> "Build systems that are clear, reliable, and easy to scale."
 
-I believe in crafting solutions that are not just functional, but elegant, maintainable, and built to scale with advanced AI capabilities.
+I value clarity over buzzwords, strong fundamentals over unnecessary complexity, and products that solve real problems with solid engineering.
