@@ -1,13 +1,13 @@
 ---
 greeting: "Hi, I'm Tushar"
-subheading: "AI Full Stack Software Engineer"
+subheading: "Software Engineer | Backend, Go, GenAI"
 stats:
-  - label: "Years Experience"
-    value: "3.10"
-  - label: "Projects Completed"
+  - label: "Experience"
+    value: "4 Years"
+  - label: "Projects"
     value: "8+"
-  - label: "Tech Stack"
-    value: "4+"
-  - label: "Dedication"
-    value: "100%"
+  - label: "Core Stack"
+    value: "Go, Python, Next.js"
+  - label: "Focus"
+    value: "Backend & AI Systems"
 ---
